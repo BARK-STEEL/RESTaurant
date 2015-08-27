@@ -29,10 +29,12 @@ body {
     border:solid 1px #aaa;
 }
 .party-forms {
-  width:30%;
-  margin-top: 5%;
-  margin-right: 42%;
-  text-align: left;
+  width:40%;
+  margin: 2% 18% 2% 25%;
+  text-align: center;
+}
+.party-forms>form {
+  text-align: center;
 }
 .full, .empty {
   font-size: 1.5em;
@@ -82,12 +84,7 @@ table {
 .mobile{
   display: none;
 }
-.mobile li {
-  border: 1px solid black;
-  padding-top: 10px;
-  width: 50%;
-  margin: 0 auto 10px auto;
-}
+
 .mobile a{
   text-decoration: none;
   color:black;
@@ -101,12 +98,11 @@ table {
   color:green;
 }
 .main-button {
-  position: absolute;
-  bottom: -40%;
-  left: 25%;
+  position: relative;
+  bottom:0;
 }
-h5 {
-  width: 100%;
+h2 {
+  margin-bottom:0;
 }
 
 
@@ -128,15 +124,27 @@ h5 {
   .mobile {
     display:block;
   }
+  .mobile li {
+    border: 1px solid black;
+    padding: 10px 0 0 0;
+    width: 60%;
+    margin: 0 auto 10px auto;
+  }
   .header {
     margin-top: 5%;
-    margin-bottom: 25%;
+    margin-bottom: 10%;
   }
   .main>form {
-    margin-top:25%;
+    margin-top:10%;
   }
   .party-info {
     width: 150px;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  form {
+    margin-bottom: 0;
   }
 }
 @media (min-width : 371px) and (max-width : 500px){
