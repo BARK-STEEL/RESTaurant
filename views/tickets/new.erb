@@ -16,7 +16,7 @@
 </div>
 
 <div class="row">
-  <table class="orders">
+  <table class="orders desktop">
     <tr>
       <th>Order Item</th>
       <th>Price</th>
@@ -38,8 +38,26 @@
         </td>
       </tr>
     <% end %>
-
   </table>
+
+  <div class="mobile">
+    <ul>
+    <% @item_orders.each do |item| %>
+    <li>
+        Order Item: <%= item.food.name %><br/>
+        Price: $<%= sprintf "%.2f", item.food.price %><br/>
+        Status: <span class="food-order" data-status("<%= item.status %>")><%= item.status %></span><br/>
+        <form class="delete" action="/tickets/<%= item.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">Remove Item</button>
+        </form>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
     Total Price: $<%= "#{@total.to_s}0" %><br/>
 </div>
 

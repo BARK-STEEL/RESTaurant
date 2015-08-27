@@ -1,5 +1,5 @@
 <div class="row">
-  <h1>Add Reservation for <%= @formattedDate %></h1>
+  <h2>Add Reservation for <%= @formattedDate %></h2>
 
   <form class="" action="/parties/date" method="get">
     <input type="hidden" name="reservation_date" value="<%= @date %>"><br/>
@@ -13,18 +13,17 @@
 <div class="row party-forms">
   <form class="" action="/parties" method="post">
   <input type="hidden" name="party[reservation_date]" value="<%= @date %>">
-    Time: <input id="timepicker" type="text" name="party[reservation_time]"><br/>
+  Time: <input id="timepicker" type="text" name="party[reservation_time]"><br/>
 
-    Server: <select name="party[server_id]">
-      <% @servers.each do |server|%>
-      <option value="<%= server.id %>">
-        <%= server.name %>
-      </option>
-      <% end %>
-    </select><br/>
+  Server: <select name="party[server_id]">
+    <% @servers.each do |server|%>
+    <option value="<%= server.id %>">
+      <%= server.name %>
+    </option>
+    <% end %>
+  </select><br/>
 
-
-    Number of Guests: <input type="text" name="party[number_seats]" placeholder=""><br/>
+    Guests:<input type="text" name="party[number_seats]" placeholder="">
 
     <input type="hidden" name="party[table_number]" value="<%= @table_number%>">
 

@@ -1,15 +1,20 @@
-<div class="row">
-  <h1>TurnTable</h1>
+<div class="row main">
 
-  <form class="" action="/tickets">
-    <button type="submit">Start a New Order</button>
+  <form  action="/tickets">
+    <button class="new-order-button" type="submit">Start a New Order</button>
   </form>
 
-  <form class="" action="/foods">
-    <button type="submit">View Menu</button>
-  </form>
+  <ul>
+    <li class="admin">
+      <form class="" action="/foods">
+        <button type="submit">View Menu</button>
+      </form>
+    </li>
 
-  <form class="" action="/admin">
-    <button type="submit">Admin</button>
-  </form>
+    <li class="admin">
+      <form action="/admin">
+        <button type="submit">Admin</button>
+      </form>
+    </li>
+  </ul>
 </div>

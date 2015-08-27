@@ -1,5 +1,5 @@
 <div class="row">
-  <h1>Reservations</h1>
+  <h2>Reservations for <%= @formattedDate %></h2>
 
   <form class="admin" action="/admin">
     <button type="submit">Back to Admin</button>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="row">
-  <h2>Reservations for <%= @formattedDate %></h2>
+
   <form class="" action="/parties/date" method="get">
     <input id="datepicker" type="text" name="reservation_date"><br/>
     <input type="submit" name="name" value="Select Date">
@@ -20,12 +20,12 @@
 <div class="tables">
   <div class="row">
 
-  <%(1..15).to_a.each do |num|%>
+  <%(1..16).to_a.each do |num|%>
     <% tableocc = false %>
     <% @parties.each do |party| %>
       <% if party.table_number === num %>
           <div class="two columns">
-            <form class= "" action="/tickets/party/<%= party.id%>" method="post">
+            <form class= "res-table" action="/tickets/party/<%= party.id%>" method="post">
               <button class="full" type="submit" name="party_id" value="<%= party.id %>"><%= num %></button>
             </form>
           </div>
@@ -34,14 +34,14 @@
     <%end%>
     <%if tableocc === false%>
       <div class="two columns">
-        <form class="" action="/parties/new/<%= @date %>" method="post">
+        <form class="res-table" action="/parties/new/<%= @date %>" method="post">
           <button  class="empty" type="submit" name="table_number" value="<%=num%>"><%= num %></button>
         </form>
       </div>
     <%end%>
 
 
-    <% if num % 5 == 0%>
+    <% if num % 4 == 0%>
       </div>
       <div class="row">
     <% end %>
