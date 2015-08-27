@@ -1,0 +1,170 @@
+<div class="row">
+  <form class="admin" action="/">
+    <button type="submit">Back to Main</button>
+  </form>
+  <form class="admin" action="/parties">
+    <button type="submit">View All Reservations</button>
+  </form>
+  <h1>New order</h1>
+  <h4>Server: <%= @party.server.name %></h4>
+  <h4>Table: <%= @party.table_number %></h4>
+  <h4>Party of <%= @party.number_seats%></h4>
+  <h4>Status: <%= @party.status%></h4>
+
+
+<% if @party.status == "open" || @party.status == "closed"%>
+</div>
+
+<div class="row">
+  <table class="orders">
+    <tr>
+      <th>Order Item</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+
+    <% @item_orders.each do |item| %>
+
+      <tr>
+        <td><%= item.food.name %></td>
+        <td>$<%= sprintf "%.2f", item.food.price %></td>
+        <td class="food-order" data-status("<%= item.status %>")><%= item.status %></td>
+        <td>
+          <form class="delete" action="/tickets/<%= item.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Remove Item</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+    Total Price: $<%= "#{@total.to_s}0" %><br/>
+</div>
+
+
+
+
+
+<div class="row">
+
+    <div class="ccms_form_element cfdiv_custom" id="style_container_div">
+    <label>Add Item:</label>
+    <select size="1" id="foodChoices" class=" validate['required']" title="" type="select" name="style">
+      <option value="">-Choose A Course-</option>
+      <% @courses.each do |course|%>
+      <option class="course-selection" value="<%= course %>">
+        <%= course %>
+      </option>
+      <% end %>
+    </select>
+
+    <div class="clear"></div>
+
+    <div id="error-message-style"></div>
+
+    </div>
+
+  <div id="Drinks"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+    <form action="/tickets/party/<%= @party.id %>" method="post">
+      <label>Which Kind of Drink?</label>
+        <select name="item_order[food_id]">
+          <option value="">-Choose A Drink-</option>
+          <% @foods_Drinks.each do |food|%>
+          <option class="" value="<%= food.id %>">
+            <%= food.name %>
+          </option>
+          <% end %>
+        </select>
+      <input type="hidden" name="item_order[server_id]" value="<%= @party.server_id %>">
+      <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+      <input type="hidden" name="item_order[status]" value="preparing"><br/>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </div>
+
+  <div id="Appetizers"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+    <form action="/tickets/party/<%= @party.id %>" method="post">
+      <label>Which Kind of Appetizer?</label>
+        <select name="item_order[food_id]">
+        <option value="">-Choose An Appetizer-</option>
+        <% @foods_Appetizers.each do |food|%>
+        <option class="" value="<%= food.id %>">
+          <%= food.name %>
+        </option>
+        <% end %>
+        </select>
+      <input type="hidden" name="item_order[server_id]" value="<%= @party.server_id %>">
+      <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+      <input type="hidden" name="item_order[status]" value="preparing"><br/>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </div>
+
+  <div id="Entrees"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+    <form action="/tickets/party/<%= @party.id %>" method="post">
+      <label>Which Kind of Entree?</label>
+        <select name="item_order[food_id]">
+          <option value="">-Choose An Entree-</option>
+          <% @foods_Entrees.each do |food|%>
+          <option class="" value="<%= food.id %>">
+            <%= food.name %>
+          </option>
+          <% end %>
+        </select>
+      <input type="hidden" name="item_order[server_id]" value="<%= @party.server_id %>">
+      <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+      <input type="hidden" name="item_order[status]" value="preparing"><br/>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </div>
+
+  <div id="Sides"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+    <form action="/tickets/party/<%= @party.id %>" method="post">
+      <label>Which Kind of Side?</label>
+        <select name="item_order[food_id]">
+        <option value="">-Choose A Side-</option>
+        <% @foods_Appetizers.each do |food|%>
+        <option class="" value="<%= food.id %>">
+          <%= food.name %>
+        </option>
+        <% end %>
+        </select>
+      <input type="hidden" name="item_order[server_id]" value="<%= @party.server_id %>">
+      <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+      <input type="hidden" name="item_order[status]" value="preparing"><br/>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </div>
+
+  <div id="Desserts"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+    <form action="/tickets/party/<%= @party.id %>" method="post">
+      <label>Which Kind of Dessert?</label>
+        <select name="item_order[food_id]">
+        <option value="">-Choose A Dessert-</option>
+        <% @foods_Desserts.each do |food|%>
+        <option class="" value="<%= food.id %>">
+          <%= food.name %>
+        </option>
+        <% end %>
+        </select>
+      <input type="hidden" name="item_order[server_id]" value="<%= @party.server_id %>">
+      <input type="hidden" name="item_order[party_id]" value="<%= @party.id %>">
+      <input type="hidden" name="item_order[status]" value="preparing"><br/>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </div>
+  <div class="clear"></div><div id="error-message-style-sub-1"></div></div>
+</div>
+
+<div class="row">
+
+
+
+  <form class="" action="/tickets/checkout/<%= @party.id %>" method="post">
+    <button type="submit">Checkout</button>
+  </form>
+
+</div>
+<% end %>

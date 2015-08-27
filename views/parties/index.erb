@@ -1,0 +1,52 @@
+<div class="row">
+  <h1>Reservations</h1>
+
+  <form class="admin" action="/admin">
+    <button type="submit">Back to Admin</button>
+  </form>
+</div>
+
+<div class="row">
+  <h2>All Reservations</h2>
+  <form class="date" action="/parties/date" method="get">
+    <input id="datepicker" type="text" name="reservation_date"><br/>
+    <input type="submit" value="Select Date">
+  </form>
+  <form class="date" action="/parties/date" method="get">
+    <input type="hidden" name="reservation_date" value="<%=Date.today.to_s.gsub('-','')%>"><br/>
+    <input type="submit" name="name" value="Today">
+  </form>
+
+</div>
+
+<div class="row">
+  <table>
+    <tr>
+      <th></th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Table Number</th>
+      <th>Server</th>
+      <th>Number of Guests</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <% @parties.each do |party| %>
+      <tr>
+        <td><a href="/tickets/party/<%= party.id %>"><button type="button" name="button">Go</button></a></td>
+        <td><%= party.reservation_date %></td>
+        <td><%= party.reservation_time %></td>
+        <td style="text-align: center;"><%= party.table_number %></td>
+        <td><%= party.server.name %></td>
+        <td style="text-align: center;"><%= party.number_seats %></td>
+        <td class="<%= party.status %>"><%= party.status %></td>
+        <td>
+        <form class="delete" action="/parties/<%=party.id%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit" name="button">Delete</button>
+        </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,16 @@
+<ul>
+  <% @parties.each do |party| %>
+    <li>
+      Time: <%= party.reservation_time %><br/>
+      Table Number: <%= party.table_number %><br/>
+      Server: <%= party.server.name %><br/>
+      Number of Guests: <%= party.number_seats %>
+    </li>
+    <form action="/parties/<%=party.id%>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="button">Delete</button>
+    </form>
+  <% end %>
+</ul>
+
+Table Number: <input type="text" name="party[table_number]" placeholder=""><br/>

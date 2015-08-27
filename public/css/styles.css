@@ -1,0 +1,81 @@
+body {
+  background-color: lightblue;
+  margin-top: 2%;
+}
+.open {
+  color: green;
+}
+.closed {
+  color: red;
+}
+.upcoming {
+  color: yellow;
+}
+.admin {
+  display: inline;
+}
+.row {
+  margin: 0 auto;
+  text-align: center;
+}
+.admin-forms {
+  margin-top:10%;
+}
+.nav {
+  margin-bottom: 2%;
+}
+#datepicker {
+    padding: 3px;
+    border:solid 1px #aaa;
+}
+.party-forms {
+  width:30%;
+  margin-top: 5%;
+  margin-right: 42%;
+  text-align: right;
+}
+.full, .empty {
+  font-size: 1.5em;
+  color:black;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  padding:5%;
+  border: 2px solid white;
+}
+.empty {
+  background-color: red;
+}
+.full {
+  background-color: green;
+}
+.foodItem {
+  float:left;
+}
+li {
+  list-style-type: none;
+}
+.kitchen {
+  background-color: green;
+}
+.food-order {
+  color: black;
+}
+.delete {
+  margin-bottom:0;
+}
+table {
+  margin-left: 2%;
+}
+.orders {
+  margin-left:28%;
+}
+.servers {
+  margin-top:5%;
+}
+.tables {
+  margin-left:15%;
+}
+.date {
+  display: inline;
+}

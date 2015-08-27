@@ -1,0 +1,26 @@
+<div class="row"><h1>Receipt</h1>
+  Table Number: <%= @party.table_number%><br/>
+  Server: <%= @party.server.name%></div>
+
+<div class="row admin-forms">
+  <ul>
+
+    <% @orders.each do |order| %>
+      <li>
+
+        <%= order.food.name %>
+        $<%= sprintf "%.2f", order.food.price %>
+
+      </li>
+    <% end %>
+
+
+  </ul>
+  Subtotal: $<%= "#{@total.to_s}0" %><br/>
+
+  Suggested Tips:<br/>
+  15%: $<%= sprintf "%.2f", @total*0.15 %><br/>
+  20%: $<%=  sprintf "%.2f", @total*0.20 %><br/>
+  25%: $<%=  sprintf "%.2f", @total*0.25 %><br/>
+
+</div>

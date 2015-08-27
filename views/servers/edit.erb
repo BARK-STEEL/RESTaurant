@@ -1,0 +1,18 @@
+<div class="row">
+  <h1>Edit Menu Item</h1>
+
+  <form class="admin" action="/foods">
+    <button type="submit">Back to Menu</button>
+  </form>
+</div>
+
+<div class="row admin-forms">
+  <form class="" action="/servers/<%= @server.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="text" name="server[name]" value="<%= @server.name %>">
+    <input type="text" name="server[phone_number]" value="<%= @server.phone_number %>">
+
+    <input type="submit">
+
+  </form>
+</div>

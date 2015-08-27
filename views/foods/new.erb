@@ -1,0 +1,33 @@
+<div class="row">
+  <h1>Add Menu Item</h1>
+
+  <form class="admin" action="/foods">
+    <button type="submit">Back to Menu</button>
+  </form>
+</div>
+
+<div class="row admin-forms">
+  <form class="" action="/foods" method="post">
+    <input type="text" name="food[name]" placeholder="name">
+    <select name="food[course]">
+      <% @courses.each do |course|%>
+      <option value="<%= course %>">
+        <%= course %>
+      </option>
+      <% end %>
+    </select>
+
+    <select name="food[allergens]">
+      <% @allergens.each do |allergen|%>
+      <option value="<%= allergen %>">
+        <%= allergen %>
+      </option>
+      <% end %>
+    </select>
+
+    <input type="text" name="food[price]" placeholder="price">
+
+    <input type="submit">
+
+  </form>
+</div>

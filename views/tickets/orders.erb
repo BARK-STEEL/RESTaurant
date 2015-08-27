@@ -1,0 +1,20 @@
+<div class="row">
+  <h1>Kitchen</h1>
+
+  <form class="admin" action="/admin">
+    <button type="submit">Back to Admin</button>
+  </form>
+
+
+    <% @orders.each do |order| %>
+
+      <div class="row" >
+        <form class="" action="/tickets/kitchen/<%= order.id %>" method="post">
+          <button class="kitchen" type="submit" data-start-time="<%= order.created_at %>"><%= order.food.name %></button>
+        </form>
+      </div>
+
+
+    <% end %>
+
+</div>

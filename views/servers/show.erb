@@ -1,0 +1,51 @@
+<div class="row">
+  <h1>Server Info</h1>
+
+  <form class="admin" action="/servers">
+    <button type="submit">Back to Servers</button>
+  </form><br/>
+</div>
+
+<div class="row">
+  Name:<h4><%= @server.name %></h4>
+  Phone Number<h4><%= @server.phone_number.insert(0, "(").insert(4, ")").insert(8, "-")%></h4>
+  Reservations:
+  <table>
+    <tr>
+      <th></th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Table Number</th>
+      <th>Server</th>
+      <th>Number of Guests</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <% @parties.each do |party| %>
+      <tr>
+        <td><a href="/tickets/party/<%= party.id %>"><button type="button" name="button">Go</button></a></td>
+        <td><%= party.reservation_date %></td>
+        <td><%= party.reservation_time %></td>
+        <td style="text-align: center;"><%= party.table_number %></td>
+        <td><%= party.server.name %></td>
+        <td style="text-align: center;"><%= party.number_seats %></td>
+        <td><%= party.status %></td>
+        <td>
+        <form class="res-delete" action="/parties/<%=party.id%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit" name="button">Delete</button>
+        </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <form class="admin-forms" action="/servers/<%= @server.id %>/edit">
+    <button type="submit">Edit Server Info</button>
+  </form>
+
+  <form class="" action="/servers/<%= @server.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete Server</button>
+  </form>
+</div>

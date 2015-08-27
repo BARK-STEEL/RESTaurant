@@ -1,0 +1,36 @@
+<div class="row">
+  <h1>Add Reservation for <%= @formattedDate %></h1>
+
+  <form class="" action="/parties/date" method="get">
+    <input type="hidden" name="reservation_date" value="<%= @date %>"><br/>
+    <button type="submit">Back to Reservations</button>
+  </form>
+
+</div>
+
+<div class="row"><h2>Table Number: <%= @table_number %></h2>
+  </div>
+<div class="row party-forms">
+  <form class="" action="/parties" method="post">
+  <input type="hidden" name="party[reservation_date]" value="<%= @date %>">
+    Time: <input id="timepicker" type="text" name="party[reservation_time]"><br/>
+
+    Server: <select name="party[server_id]">
+      <% @servers.each do |server|%>
+      <option value="<%= server.id %>">
+        <%= server.name %>
+      </option>
+      <% end %>
+    </select><br/>
+
+
+    Number of Guests: <input type="text" name="party[number_seats]" placeholder=""><br/>
+
+    <input type="hidden" name="party[table_number]" value="<%= @table_number%>">
+
+    <input type="hidden" name="party[status]" value="upcoming">
+
+    <input type="submit">
+
+  </form>
+</div>
