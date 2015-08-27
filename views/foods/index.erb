@@ -1,18 +1,18 @@
 <div class="row">
-  <h1>Menu</h1>
+  <h1 class="menu">Menu</h1>
 
   <form class="admin" action="/admin">
-    <button type="submit">Back to Admin</button>
+    <button type="submit">Admin</button>
   </form>
 
   <form class="admin" action="/foods/new">
-    <button type="submit">Add a Menu Item</button>
+    <button type="submit">Add Item</button>
   </form>
 
 </div>
 
-<div class="row">
-  <h2>Drinks</h2>
+<div class="row menu">
+  <h2 class="menu-heading">Drinks</h2>
 
   <ul>
     <% @foods_Drinks.each do |drink| %>
@@ -28,7 +28,7 @@
   </ul>
 
 
-  <h2>Appetizers</h2>
+  <h2 class="menu-heading">Appetizers</h2>
 
   <ul>
     <% @foods_Appetizers.each do |appetizer| %>
@@ -44,7 +44,7 @@
   </ul>
 
 
-  <h2>Entrees</h2>
+  <h2 class="menu-heading">Entrees</h2>
 
   <ul>
     <% @foods_Entrees.each do |entree| %>
@@ -60,7 +60,7 @@
   </ul>
 
 
-  <h2>Sides</h2>
+  <h2 class="menu-heading">Sides</h2>
 
   <ul>
     <% @foods_Sides.each do |side| %>
@@ -76,7 +76,7 @@
   </ul>
 
 
-  <h2>Desserts</h2>
+  <h2 class="menu-heading">Desserts</h2>
 
   <ul>
     <% @foods_Desserts.each do |dessert| %>

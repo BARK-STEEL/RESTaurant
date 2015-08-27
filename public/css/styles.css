@@ -1,5 +1,7 @@
 body {
-  background-color: lightblue;
+  background-color: #9e9186;
+background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   margin-top: 2%;
 }
 .open {
@@ -44,6 +46,7 @@ body {
   border-radius:50%;
   padding:5%;
   border: 2px solid white;
+  border-radius:5px;
 }
 .empty {
   background-color: red;
@@ -53,6 +56,10 @@ body {
 }
 .foodItem {
   float:left;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 li {
   list-style-type: none;
@@ -104,7 +111,15 @@ table {
 h2 {
   margin-bottom:0;
 }
-
+.header {
+font-family: 'Poiret One', cursive;
+font-size:3em;
+}
+button {
+  background-color: rgba(110, 170, 189, 0.5);
+  color: rgb(82, 82, 82);
+  border: 2px solid rgb(105, 102, 102);
+}
 
 @media (min-width : 200px) and (max-width : 370px){
   form.res-table {
@@ -129,6 +144,7 @@ h2 {
     padding: 10px 0 0 0;
     width: 60%;
     margin: 0 auto 10px auto;
+    border-radius:5px;
   }
   .header {
     margin-top: 5%;
@@ -137,7 +153,7 @@ h2 {
   .main>form {
     margin-top:10%;
   }
-  .party-info {
+  .party-info
     width: 150px;
   }
   h2 {
@@ -145,6 +161,14 @@ h2 {
   }
   form {
     margin-bottom: 0;
+  }
+
+  .menu-heading {
+    margin-bottom: 10px;
+  }
+  .menu button {
+    font-size:10px;
+    padding: 1px 5px 5px 5px;
   }
 }
 @media (min-width : 371px) and (max-width : 500px){
