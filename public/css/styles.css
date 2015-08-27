@@ -110,7 +110,7 @@ h5 {
 }
 
 
-@media only screen (min-device-width : 200px) and (max-device-width : 370px){
+@media (min-width : 200px) and (max-width : 370px){
   form.res-table {
     width: 100px;
     margin:0;
@@ -121,9 +121,7 @@ h5 {
   .tables{
     margin-left: 15%;
   }
-  table {
-    width:300px;
-  }
+
   .desktop {
     display:none;
   }
