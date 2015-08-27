@@ -95,7 +95,7 @@ table {
 .new-order-button {
  padding: 80px 40px 120px 40px;
  border-radius: 10%;
- font-size: 1.5em;
+ font-size: 1em;
 }
 .new-order-button:hover {
   color:green;
@@ -132,7 +132,7 @@ h5 {
   }
   .header {
     margin-top: 5%;
-    margin-bottom: 45%;
+    margin-bottom: 25%;
   }
   .main>form {
     margin-top:25%;
