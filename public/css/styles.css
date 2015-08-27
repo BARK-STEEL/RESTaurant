@@ -110,7 +110,7 @@ h5 {
 }
 
 
-@media (min-width : 200px) and (max-width : 370px){
+@media only screen (min-device-width : 200px) and (max-device-width : 370px){
   form.res-table {
     width: 100px;
     margin:0;
