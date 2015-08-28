@@ -31,7 +31,8 @@ class TicketsController < ApplicationController
     @allergens = ["none", "lactose", "nuts", "wheat", "eggs", "soy", "fish"];
     @party = Party.find(params[:id])
     @item_orders = @party.item_orders
-    @total = Party.calculate_receipt(@item_orders)
+    @orders = @party.item_orders.all
+    @total = Party.calculate_receipt(@orders)
     erb :'tickets/new'
   end
 

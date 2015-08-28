@@ -174,9 +174,45 @@
 
 
 
-  <form class="" action="/tickets/checkout/<%= @party.id %>" method="post">
-    <button type="submit">Checkout</button>
-  </form>
+
+    <button class="checkout-button" type="submit">Checkout</button>
+
+</div>
+<div class="modal">
+
+  <div class="modal-content">
+    <form action="/tickets/checkout/<%= @party.id %>" method="post">
+      <button type="submit" id="close-modal">X</button>
+    </form>
+    <div class="modal-body">
+      <h1>Receipt</h1>
+      Table Number: <%= @party.table_number%><br/>
+      Server: <%= @party.server.name%>
+      <div class="">
+        <ul>
+
+          <% @item_orders.each do |item| %>
+            <li>
+
+              <%= item.food.name %>
+              $<%= sprintf "%.2f", item.food.price %>
+
+            </li>
+          <% end %>
+
+
+        </ul>
+        Subtotal: $<%= "#{@total.to_s}0" %><br/>
+
+        Suggested Tip:<br/>
+        15%: $<%= sprintf "%.2f", @total*0.15 %><br/>
+        20%: $<%=  sprintf "%.2f", @total*0.20 %><br/>
+        25%: $<%=  sprintf "%.2f", @total*0.25 %><br/>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <form class="admin" action="/">
     <button type="submit">Main</button>

@@ -68,4 +68,15 @@ $(window).ready(function(){
       e[j].style.color = "green";
     }
   }
+
+$(".checkout-button").on("click", function() {
+  console.log("You clicked the open button!");
+  $(".modal").toggle();
+});
+
+// Add an event to CLOSE the modal
+// $("#close-modal").on("click", function() {
+//   console.log("You clicked the close button.");
+//   $(".modal").toggle();
+// });
 });

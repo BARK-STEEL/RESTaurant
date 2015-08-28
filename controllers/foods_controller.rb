@@ -3,14 +3,21 @@ require './models/food'
 class FoodsController < ApplicationController
 
   get '/' do
-    # @courses = ["Drinks", "Sides", "Appetizers", "Entrees", "Desserts"];
-    # @allergens = ["lactose", "nuts", "wheat", "eggs", "soy", "fish"];
     @foods_Drinks = Food.all.where("course='Drinks'")
     @foods_Appetizers = Food.all.where("course = 'Appetizers'")
     @foods_Entrees = Food.all.where("course = 'Entrees'")
     @foods_Desserts = Food.all.where("course = 'Desserts'")
     @foods_Sides = Food.all.where("course = 'Sides'")
     erb :'foods/index'
+  end
+
+  get '/menu-edit' do
+    @foods_Drinks = Food.all.where("course='Drinks'")
+    @foods_Appetizers = Food.all.where("course = 'Appetizers'")
+    @foods_Entrees = Food.all.where("course = 'Entrees'")
+    @foods_Desserts = Food.all.where("course = 'Desserts'")
+    @foods_Sides = Food.all.where("course = 'Sides'")
+    erb :'foods/menu-edit'
   end
 
   get '/new' do

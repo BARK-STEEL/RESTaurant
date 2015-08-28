@@ -1,16 +1,16 @@
 <div class="row">
-  <h1>Menu Item</h1>
+  <h3 class="page-header">Menu Item</h3>
 
   <form class="admin" action="/foods">
-    <button type="submit">Back to Menu</button>
+    <button type="submit">Menu</button>
   </form><br/>
 </div>
 
 <div class="row admin-forms">
-  <h3>Name: <%= @food.name %><br/>
+  <h4>Name: <%= @food.name %><br/>
     Course: <%= @food.course %><br/>
     Allergen: <%= @food.allergens %><br/>
-    Price: $<%= @food.price.to_i %></h3>
+    Price: $<%= @food.price.to_i %></h4>
 
   <form class="admin-forms" action="/foods/<%= @food.id %>/edit">
     <button type="submit">Edit Item</button>

@@ -1,5 +1,5 @@
 <div class="row">
-  <h1>Edit Menu Item</h1>
+  <h3 class="page-header">Edit Menu Item</h3>
 
   <form class="admin" action="/foods">
     <button type="submit">Back to Menu</button>
@@ -12,28 +12,24 @@
     <input type="text" name="food[name]" value="<%= @food.name %>">
 
     <select name="food[course]" value="<%= @food.course %>">
-      <option value="<%= @food.course %>" selected><%= @food.course %></option>
+      <option>Course</option>
       <% @courses.each do |course|%>
-       <% if course != @food.course %>
-      <option value="<%= course %>">
-        <%= course %>
-      </option>
-      <% end %>
+        <option value="<%= course %>">
+          <%= course %>
+        </option>
       <% end %>
     </select>
 
     <select name="food[allergens]">
-      <option value="<%= @food.allergens %>" selected><%= @food.allergens %></option>
+      <option>Allergen</option>
       <% @allergens.each do |allergen|%>
-      <% if allergen != @food.allergens %>
-      <option value="<%= allergen %>">
-        <%= allergen %>
-      </option>
-      <% end %>
+        <option value="<%= allergen %>">
+          <%= allergen %>
+        </option>
       <% end %>
     </select>
 
-    <input type="text" name="food[price]" value="<%= @food.price.to_i %>">
+    <input type="text" name="food[price]" value="<%= @food.price.to_i %>"><br/>
 
     <input type="submit">
 

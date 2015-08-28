@@ -1,13 +1,13 @@
 <div class="row">
   <h3 class=" page-header menu">Menu</h3>
 
-  <form class="admin" action="/admin">
-    <button type="submit">Admin</button>
+  <form class="admin" action="/foods">
+    <button type="submit">Menu</button>
   </form>
 
-
-    <a href="/foods/menu-edit"><button type="submit">Edit Menu</button></a>
-
+  <form class="admin" action="/foods/new">
+    <button type="submit">Add Item</button>
+  </form>
 
 </div>
 
@@ -19,6 +19,10 @@
       <li>
         <a class="admin" href="/foods/<%= drink.id %>"><%= drink.name %></a>
         $<%= drink.price.to_i %>
+        <form class="admin" action="/foods/<%= drink.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button></button>
+        </form>
       </li>
     <% end %>
   </ul>
@@ -31,6 +35,10 @@
       <li>
         <a href="/foods/<%= appetizer.id %>"><%= appetizer.name %></a>
         $<%= appetizer.price.to_i %>
+        <form class="admin" action="/foods/<%= appetizer.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button>
+        </form>
       </li>
     <% end %>
   </ul>
@@ -43,6 +51,10 @@
       <li>
         <a href="/foods/<%= entree.id %>"><%= entree.name %></a>
         $<%= entree.price.to_i %>
+        <form class="admin" action="/foods/<%= entree.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button>
+        </form>
       </li>
     <% end %>
   </ul>
@@ -55,6 +67,10 @@
       <li>
         <a href="/foods/<%= side.id%>"><%= side.name %></a>
         $<%= side.price.to_i %>
+        <form class="admin" action="/foods/<%= side.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button>
+        </form>
       </li>
     <% end %>
   </ul>
@@ -67,6 +83,10 @@
       <li>
         <a href="/foods/<%= dessert.id %>"><%= dessert.name %></a>
         $<%= dessert.price.to_i %>
+        <form class="admin" action="/foods/<%= dessert.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button>
+        </form>
       </li>
     <% end %><br/>
   </ul>
