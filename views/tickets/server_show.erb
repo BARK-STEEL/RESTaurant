@@ -1,13 +1,9 @@
 <div class="row">
-  <h1><%= @server.name %></h1>
+  <h3 class="page-header"><%= @server.name %></h3>
 
-  <form class="admin" action="/">
-    <button type="submit">Back to Main</button>
-  </form>
 
-  <form class="admin" action="/tickets">
-    <button type="submit">Back</button>
-  </form>
+
+
 
 </div>
 
@@ -21,4 +17,14 @@
     <% end %>
 
   </ul>
+</div>
+<div class="row main-button">
+
+  <form class="admin" action="/tickets">
+    <button type="submit">Back</button>
+  </form>
+
+  <form class="" action="/">
+    <button type="submit">Main</button>
+  </form>
 </div>

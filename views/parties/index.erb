@@ -1,8 +1,5 @@
 <div class="row">
   <h3 class="page-header">All Reservations</h3>
-  <form class="admin" action="/admin">
-    <button type="submit">Admin</button>
-  </form>
 </div>
 
 <div class="row">
@@ -53,7 +50,7 @@
   <div class="mobile">
     <ul>
       <% @parties.each do |party| %>
-        <li>
+        <li class="shadow">
           <a href="/tickets/party/<%= party.id %>">Date: <%= party.reservation_date %><br/>
             Time: <%= party.reservation_time %><br/>
             Table Number: <span style="text-align: center;"><%= party.table_number %></span><br/>
@@ -67,4 +64,7 @@
         </li>
       <% end %>
   </div>
+  <form class="admin" action="/admin">
+    <button type="submit">Admin</button>
+  </form>
 </div>

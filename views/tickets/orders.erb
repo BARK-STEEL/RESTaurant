@@ -1,9 +1,6 @@
 <div class="row">
   <h3 class="page-header">Kitchen</h3>
 
-  <form class="admin" action="/admin">
-    <button type="submit">Back to Admin</button>
-  </form>
 
 
     <% @orders.each do |order| %>
@@ -16,5 +13,9 @@
 
 
     <% end %>
+
+    <form class="admin main-button" action="/admin">
+      <button type="submit">Admin</button>
+    </form>
 
 </div>

@@ -1,11 +1,5 @@
 <div class="row">
-  <form class="admin" action="/">
-    <button type="submit">Back to Main</button>
-  </form>
-  <form class="admin" action="/parties">
-    <button type="submit">View All Reservations</button>
-  </form>
-  <h1>New order</h1>
+  <h3 class="page-header">New order</h3>
   <h4>Server: <%= @party.server.name %></h4>
   <h4>Table: <%= @party.table_number %></h4>
   <h4>Party of <%= @party.number_seats%></h4>
@@ -184,5 +178,11 @@
     <button type="submit">Checkout</button>
   </form>
 
+  <form class="admin" action="/">
+    <button type="submit">Main</button>
+  </form>
+  <form class="admin" action="/parties">
+    <button type="submit">All Reservations</button>
+  </form>
 </div>
 <% end %>

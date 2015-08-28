@@ -11,6 +11,9 @@
   Phone Number<h4><%= @server.phone_number.insert(0, "(").insert(4, ")").insert(8, "-")%></h4>
   Reservations:
   <div class="row">
+    <%if @parties.length==0%>
+    None
+    <%end%>
     <div class="desktop">
       <table>
         <tr>
@@ -18,7 +21,6 @@
           <th>Date</th>
           <th>Time</th>
           <th>Table Number</th>
-          <th>Server</th>
           <th>Number of Guests</th>
           <th>Status</th>
           <th></th>
@@ -29,7 +31,6 @@
             <td><%= party.reservation_date %></td>
             <td><%= party.reservation_time %></td>
             <td style="text-align: center;"><%= party.table_number %></td>
-            <td><%= party.server.name %></td>
             <td style="text-align: center;"><%= party.number_seats %></td>
             <td class="<%= party.status %>"><%= party.status %></td>
             <td>
@@ -45,11 +46,10 @@
     <div class="mobile">
       <ul>
         <% @parties.each do |party| %>
-          <li>
+          <li class="shadow">
             <a href="/tickets/party/<%= party.id %>">Date: <%= party.reservation_date %><br/>
               Time: <%= party.reservation_time %><br/>
               Table Number: <span style="text-align: center;"><%= party.table_number %></span><br/>
-              Server: <%= party.server.name %><br/>
               Party of <span style="text-align: center;"><%= party.number_seats %></span><br/>
               Status: <span class="<%= party.status %>"><%= party.status %></span><br/></a>
             <form class="delete" action="/parties/<%=party.id%>" method="post">

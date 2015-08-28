@@ -1,8 +1,8 @@
 <div class="row">
-  <h1>Add Menu Item</h1>
+  <h3 class="page-header">Add Menu Item</h3>
 
   <form class="admin" action="/foods">
-    <button type="submit">Back to Menu</button>
+    <button type="submit">Menu</button>
   </form>
 </div>
 
@@ -10,6 +10,7 @@
   <form class="" action="/foods" method="post">
     <input type="text" name="food[name]" placeholder="name">
     <select name="food[course]">
+      <option>Course</option>
       <% @courses.each do |course|%>
       <option value="<%= course %>">
         <%= course %>
@@ -18,6 +19,7 @@
     </select>
 
     <select name="food[allergens]">
+      <option>Allergens</option>
       <% @allergens.each do |allergen|%>
       <option value="<%= allergen %>">
         <%= allergen %>
@@ -25,9 +27,9 @@
       <% end %>
     </select>
 
-    <input type="text" name="food[price]" placeholder="price">
+    <input type="text" name="food[price]" placeholder="price"><br/>
 
-    <input type="submit">
+    <button type="submit">Submit</button>
 
   </form>
 </div>
