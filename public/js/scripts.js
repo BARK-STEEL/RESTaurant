@@ -30,42 +30,42 @@ $(window).ready(function(){
   // hiddenSuffix: '__suffix'
   });
 
-$('.course-button').on('click', function(){
-  var courseselect = $('.course-selection').val();
-  $('.food-selection').html(
-    "<% @foods_" + courseselect + ".each do|food| %><option value='<%= food %>'><%= course %></option><% end %>"
-  );
-});
+  $('.course-button').on('click', function(){
+    var courseselect = $('.course-selection').val();
+    $('.food-selection').html(
+      "<% @foods_" + courseselect + ".each do|food| %><option value='<%= food %>'><%= course %></option><% end %>"
+    );
+  });
 
-$("#foodChoices").change ( function () {
-    var targID  = $(this).val ();
-    $("div.style-sub-1").hide ();
-    $('#' + targID).show ();
-} );
+  $("#foodChoices").change ( function () {
+      var targID  = $(this).val ();
+      $("div.style-sub-1").hide ();
+      $('#' + targID).show ();
+  } );
 
-var d = $('.kitchen');
-var e = $('.food-order');
+  var d = $('.kitchen');
+  var e = $('.food-order');
 
-for (var i =0; i<d.length; i++){
-  var timeDiff = (Date.parse(new Date()) - Date.parse(d[i].getAttribute("data-start-time")))/60000;
-  if (timeDiff > 15) {
-    d[i].style.backgroundColor =  'rgb(231, 57, 57)';
-  } else if (timeDiff > 5 && timeDiff <=15) {
-    d[i].style.backgroundColor =  'orange';
-  }
-}
-for (var j=0; j < e.length; j++) {
-  var timeDiff = (Date.parse(new Date()) - Date.parse(e[j].getAttribute("data-start-time")))/60000;
-  if (timeDiff > 15) {
-    if (e[j].getAttribute("data-food-status")==="preparing"){
-          e[j].style.color = 'red';
+  for (var i =0; i<d.length; i++){
+    var timeDiff = (Date.parse(new Date()) - Date.parse(d[i].getAttribute("data-start-time")))/60000;
+    if (timeDiff > 15) {
+      d[i].style.backgroundColor =  'rgb(231, 57, 57)';
+    } else if (timeDiff > 5 && timeDiff <=15) {
+      d[i].style.backgroundColor =  'orange';
     }
-  } else if (timeDiff > 5 && timeDiff <=15) {
-    if (e[j].getAttribute("data-food-status")==="preparing"){
-          e[j].style.color = 'orange';
-    }
-  } else {
-    e[j].style.color = "green";
   }
-}
+  for (var j=0; j < e.length; j++) {
+    var timeDiff = (Date.parse(new Date()) - Date.parse(e[j].getAttribute("data-start-time")))/60000;
+    if (timeDiff > 15) {
+      if (e[j].getAttribute("data-food-status")=="preparing"){
+            e[j].style.color = 'red';
+      }
+    } else if (timeDiff > 5 && timeDiff <=15) {
+      if (e[j].getAttribute("data-food-status")=="preparing"){
+            e[j].style.color = 'orange';
+      }
+    } else {
+      e[j].style.color = "green";
+    }
+  }
 });
