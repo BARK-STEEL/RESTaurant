@@ -29,7 +29,7 @@
       <tr>
         <td><%= item.food.name %></td>
         <td>$<%= sprintf "%.2f", item.food.price %></td>
-        <td class="food-order" data-start-time="<%= item.created_at %>" data-status="<%= item.status %>"><%= item.status %></td>
+        <td class="food-order" data-start-time="<%= item.created_at %>" data-food-status="<%if item.status==0%><%="preparing"%><%else%><%="delivered"%><%end%>>"><%= item.status %></td>
         <td>
           <form class="delete" action="/tickets/<%= item.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
@@ -46,7 +46,7 @@
     <li>
         Order Item: <%= item.food.name %><br/>
         Price: $<%= sprintf "%.2f", item.food.price %><br/>
-        Status: <span class="food-order" data-start-time="<%= item.created_at %>" data-status="<%= item.status %>"><%= item.status %></span><br/>
+        Status: <span class="food-order" data-start-time="<%= item.created_at %>" data-food-status="<%= item.status %>"><%= item.status %></span><br/>
         <form class="delete" action="/tickets/<%= item.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <button type="submit">X</button>

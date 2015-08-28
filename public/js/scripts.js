@@ -57,11 +57,11 @@ for (var i =0; i<d.length; i++){
 for (var j=0; j < e.length; j++) {
   var timeDiff = (Date.parse(new Date()) - Date.parse(e[j].getAttribute("data-start-time")))/60000;
   if (timeDiff > 15) {
-    if (e[j].getAttribute("data-status")==="preparing"){
+    if (e[j].getAttribute("data-food-status")==="preparing"){
           e[j].style.color = 'red';
     }
   } else if (timeDiff > 5 && timeDiff <=15) {
-    if (e[j].getAttribute("data-status")==="preparing"){
+    if (e[j].getAttribute("data-food-status")==="preparing"){
           e[j].style.color = 'orange';
     }
   } else {
