@@ -1,5 +1,5 @@
 <div class="row">
-  <h2>All Reservations</h2>
+  <h3 class="page-header">All Reservations</h3>
   <form class="admin" action="/admin">
     <button type="submit">Admin</button>
   </form>
@@ -8,12 +8,12 @@
 <div class="row">
 
   <form class="date" action="/parties/date" method="get">
-    <input id="datepicker" type="text" name="reservation_date"><br/>
-    <input type="submit" value="Select Date">
+    <input class="datepicker" type="text" name="reservation_date"><br/>
+    <button type="submit">Select Date</button>
   </form>
   <form class="date" action="/parties/date" method="get">
     <input type="hidden" name="reservation_date" value="<%=Date.today.to_s.gsub('-','')%>"><br/>
-    <input type="submit" name="name" value="Today">
+    <button type="submit">Today</button>
   </form>
 
 </div>
@@ -62,11 +62,9 @@
             Status: <span class="<%= party.status %>"><%= party.status %></span><br/></a>
           <form class="delete" action="/parties/<%=party.id%>" method="post">
                 <input type="hidden" name="_method" value="delete">
-                <button type="submit" name="button">Delete</button>
+                <button type="submit" name="button">X</button>
           </form>
         </li>
       <% end %>
-    </table>
   </div>
-
 </div>

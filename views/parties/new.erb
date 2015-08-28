@@ -13,7 +13,7 @@
 <div class="row party-forms">
   <form class="" action="/parties" method="post">
   <input type="hidden" name="party[reservation_date]" value="<%= @date %>">
-  Time: <input id="timepicker" type="text" name="party[reservation_time]"><br/>
+  Time: <input class="timepicker" type="text" name="party[reservation_time]"><br/>
 
   Server: <select name="party[server_id]">
     <% @servers.each do |server|%>

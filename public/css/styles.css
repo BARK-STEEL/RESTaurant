@@ -3,6 +3,8 @@ body {
 background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.png);
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   margin-top: 2%;
+  font-family: 'Poiret One', cursive;
+  font-weight: 600;
 }
 .open {
   color: green;
@@ -20,9 +22,9 @@ background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.p
   margin: 0 auto;
   text-align: center;
 }
-.admin-forms {
+/*.admin-forms {
   margin-top:10%;
-}
+}*/
 .nav {
   margin-bottom: 2%;
 }
@@ -37,16 +39,6 @@ background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.p
 }
 .party-forms>form {
   text-align: center;
-}
-.full, .empty {
-  font-size: 1.5em;
-  color:black;
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  padding:5%;
-  border: 2px solid white;
-  border-radius:5px;
 }
 .empty {
   background-color: red;
@@ -65,7 +57,8 @@ li {
   list-style-type: none;
 }
 .kitchen {
-  background-color: green;
+  background-color: rgb(41, 235, 124);
+  color:darkslategrey;
 }
 .food-order {
   color: black;
@@ -84,6 +77,14 @@ table {
 }
 .tables {
   margin-left:25%;
+}
+.page-header {
+  border-bottom: 1px solid black;
+  border-style:solid;
+  border-width: 15%;
+  margin:0;
+  margin-bottom:5%;
+  padding-bottom:10px;
 }
 .date {
   display: inline;
@@ -114,13 +115,42 @@ h2 {
 .header {
 font-family: 'Poiret One', cursive;
 font-size:3em;
+font-weight: 200;
 }
 button {
   background-color: rgba(110, 170, 189, 0.5);
-  color: rgb(82, 82, 82);
+  color: darkslategrey;
   border: 2px solid rgb(105, 102, 102);
+  border-radius: 12px;
 }
-
+.full, .empty {
+  font-size: 1.5em;
+  color:black;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  padding:5%;
+  border: 2px solid white;
+  border-radius:5px;
+}
+/*.menu {
+  margin-bottom: 2%;
+}*/
+ul {
+  margin-bottom: 1%;
+}
+.menu button, .mobile button {
+  height:20px;
+  width:20px;
+  border-radius:50%;
+  padding:0;
+  line-height:1;
+  text-align: center;
+  background-color: rgb(241, 102, 102);
+}
+.menu button:hover {
+  cursor: pointer;
+}
 @media (min-width : 200px) and (max-width : 370px){
   form.res-table {
     width: 100px;
@@ -132,7 +162,6 @@ button {
   .tables{
     margin-left: 15%;
   }
-
   .desktop {
     display:none;
   }
@@ -148,7 +177,7 @@ button {
   }
   .header {
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .main>form {
     margin-top:10%;
@@ -162,14 +191,10 @@ button {
   form {
     margin-bottom: 0;
   }
-
   .menu-heading {
     margin-bottom: 10px;
   }
-  .menu button {
-    font-size:10px;
-    padding: 1px 5px 5px 5px;
-  }
+
 }
 @media (min-width : 371px) and (max-width : 500px){
   form.res-table {

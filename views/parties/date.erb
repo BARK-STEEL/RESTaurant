@@ -1,5 +1,5 @@
 <div class="row">
-  <h3>Reservations for <%= @formattedDate %></h3>
+  <h3 class="page-header" >Reservations for <%= @formattedDate %></h3>
 
   <form class="admin" action="/admin">
     <button type="submit">Back to Admin</button>
@@ -12,8 +12,8 @@
 <div class="row">
 
   <form class="" action="/parties/date" method="get">
-    <input id="datepicker" type="text" name="reservation_date"><br/>
-    <input type="submit" name="name" value="Select Date">
+    <input class="datepicker" type="text" name="reservation_date"><br/>
+    <button type="submit">Select Date</button>
   </form>
 </div>
 

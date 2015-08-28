@@ -73,7 +73,7 @@ class TicketsController < ApplicationController
       food_id: "#{item_order.food_id}",
       party_id: "#{item_order.party_id}",
       server_id: "#{item_order.server_id}",
-      status: "1"
+      status: "delivered"
     })
     redirect '/tickets/kitchen'
   end

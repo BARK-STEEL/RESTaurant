@@ -1,5 +1,5 @@
 <div class="row">
-  <h1 class="menu">Menu</h1>
+  <h3 class=" page-header menu">Menu</h3>
 
   <form class="admin" action="/admin">
     <button type="submit">Admin</button>
@@ -21,7 +21,7 @@
         $<%= drink.price.to_i %>
         <form class="admin" action="/<%= drink.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button></button>
         </form>
       </li>
     <% end %>
@@ -37,7 +37,7 @@
         $<%= appetizer.price.to_i %>
         <form class="admin" action="/foods/<%= appetizer.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button>
         </form>
       </li>
     <% end %>
@@ -53,7 +53,7 @@
         $<%= entree.price.to_i %>
         <form class="admin" action="/foods/<%= entree.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button>
         </form>
       </li>
     <% end %>
@@ -69,7 +69,7 @@
         $<%= side.price.to_i %>
         <form class="admin" action="/foods/<%= side.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button>
         </form>
       </li>
     <% end %>
@@ -85,7 +85,7 @@
         $<%= dessert.price.to_i %>
         <form class="admin" action="/foods/<%= dessert.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button>
         </form>
       </li>
     <% end %><br/>

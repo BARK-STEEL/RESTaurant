@@ -15,6 +15,21 @@ $(window).ready(function(){
     interval: 15
   });
 
+  $('.timepicker').pickatime({
+    interval: 30,
+    min: new Date(0,0,0,10),
+    max: new Date(0,0,0,22)
+  });
+
+  $('.datepicker').pickadate({
+  // Escape any “rule” characters with an exclamation mark (!).
+  format: 'dddd, mmm dd, yyyy',
+  formatSubmit: 'yyyymmdd',
+  hiddenName:true
+  // hiddenPrefix: 'prefix__',
+  // hiddenSuffix: '__suffix'
+  });
+
 $('.course-button').on('click', function(){
   var courseselect = $('.course-selection').val();
   $('.food-selection').html(
@@ -34,15 +49,9 @@ var e = $('.food-order');
 for (var i =0; i<d.length; i++){
   var timeDiff = (Date.parse(new Date()) - Date.parse(d[i].getAttribute("data-start-time")))/60000;
   if (timeDiff > 15) {
-    d[i].style.backgroundColor =  'red';
-    if (e[i].getAttribute("data-status")==="preparing"){
-          e[i].style.color = 'red';
-    }
+    d[i].style.backgroundColor =  'rgb(231, 57, 57)';
   } else if (timeDiff > 5 && timeDiff <=15) {
     d[i].style.backgroundColor =  'orange';
-    if (e[i].getAttribute("data-status")==="preparing"){
-          e[i].style.color = 'orange';
-    }
   }
 }
 for (var j=0; j < e.length; j++) {
