@@ -30,8 +30,7 @@ class TicketsController < ApplicationController
     @courses = ["Drinks", "Sides", "Appetizers", "Entrees", "Desserts"];
     @allergens = ["none", "lactose", "nuts", "wheat", "eggs", "soy", "fish"];
     @party = Party.find(params[:id])
-    @item_orders = @party.item_orders
-    @orders = @party.item_orders.all
+    @orders = @party.item_orders
     @total = Party.calculate_receipt(@orders)
     erb :'tickets/new'
   end
@@ -50,7 +49,7 @@ class TicketsController < ApplicationController
 
   get "/checkout/:id" do
     @party = Party.find(params[:id])
-    @orders = @party.item_orders.all
+    @orders = @party.item_orders
     @total = Party.calculate_receipt(@orders)
     erb :'tickets/receipt'
   end

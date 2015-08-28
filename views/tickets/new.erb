@@ -18,14 +18,14 @@
       <th></th>
     </tr>
 
-    <% @item_orders.each do |item| %>
+    <% @orders.each do |order| %>
 
       <tr>
-        <td><%= item.food.name %></td>
-        <td>$<%= sprintf "%.2f", item.food.price %></td>
-        <td class="food-order" data-start-time="<%= item.created_at %>" data-food-status="<%= item.status %>"><%= item.status %></td>
+        <td><%= order.food.name %></td>
+        <td>$<%= sprintf "%.2f", order.food.price %></td>
+        <td class="food-order" data-start-time="<%= order.created_at %>" data-food-status="<%= order.status %>"><%= order.status %></td>
         <td>
-          <form class="delete" action="/tickets/<%= item.id %>" method="post">
+          <form class="delete" action="/tickets/<%= order.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <button type="submit">Remove Item</button>
           </form>
@@ -36,12 +36,12 @@
 
   <div class="mobile">
     <ul>
-    <% @item_orders.each do |item| %>
+    <% @orders.each do |order| %>
     <li>
-        Order Item: <%= item.food.name %><br/>
-        Price: $<%= sprintf "%.2f", item.food.price %><br/>
-        Status: <span class="food-order" data-start-time="<%= item.created_at %>" data-food-status="<%= item.status %>"><%= item.status %></span><br/>
-        <form class="delete" action="/tickets/<%= item.id %>" method="post">
+        Order Item: <%= order.food.name %><br/>
+        Price: $<%= sprintf "%.2f", order.food.price %><br/>
+        Status: <span class="food-order" data-start-time="<%= order.created_at %>" data-food-status="<%= order.status %>"><%= order.status %></span><br/>
+        <form class="delete" action="/tickets/<%= order.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <button type="submit">X</button>
         </form>
@@ -191,11 +191,11 @@
       <div class="">
         <ul>
 
-          <% @item_orders.each do |item| %>
+          <% @orders.each do |order| %>
             <li>
 
-              <%= item.food.name %>
-              $<%= sprintf "%.2f", item.food.price %>
+              <%= order.food.name %>
+              $<%= sprintf "%.2f", order.food.price %>
 
             </li>
           <% end %>
