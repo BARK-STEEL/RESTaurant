@@ -26,8 +26,6 @@ class PartiesController < ApplicationController
     @date = params[:date]
     @servers = Server.all
     erb :'parties/new'
-    puts ************************************************
-    puts params
   end
 
   post '/' do
