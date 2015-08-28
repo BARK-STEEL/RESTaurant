@@ -62,7 +62,7 @@ class TicketsController < ApplicationController
   end
 
   get '/kitchen' do
-    item_orders = ItemOrder.all.where("status = '0'")
+    item_orders = ItemOrder.all.where("status = 'preparing'")
     @orders= item_orders.order(:created_at)
     erb :'tickets/orders'
   end

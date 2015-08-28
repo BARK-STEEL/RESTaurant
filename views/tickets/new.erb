@@ -49,7 +49,7 @@
         Status: <span class="food-order" data-status("<%= item.status %>")><%= item.status %></span><br/>
         <form class="delete" action="/tickets/<%= item.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit">Remove Item</button>
+          <button type="submit">X</button>
         </form>
       </li>
     <% end %>

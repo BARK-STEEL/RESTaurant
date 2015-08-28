@@ -19,7 +19,7 @@
       <li>
         <a class="admin" href="/foods/<%= drink.id %>"><%= drink.name %></a>
         $<%= drink.price.to_i %>
-        <form class="admin" action="/<%= drink.id %>" method="post">
+        <form class="admin" action="/foods/<%= drink.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <button type="submit">X</button></button>
         </form>
