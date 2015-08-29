@@ -8,11 +8,12 @@
 
 <div class="row admin-forms">
   <form class="" action="/servers" method="post">
-    <input type="text" name="server[name]" placeholder="name">
-    <input type="text" name="server[phone_number]" placeholder="phone number"><br/>
+    <input id="server-name" type="text" name="server[name]" placeholder="name">
+    <input id="server-phone" type="text" name="server[phone_number]" placeholder="phone number"><br/>
 
 
-    <button type="submit">Submit</button>
+    <button id="server_submit" type="button">Submit</button>
+    <input id="server_submit_handle" type="submit" style="display:none">
 
   </form>
 </div>

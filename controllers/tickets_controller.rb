@@ -11,8 +11,9 @@ class TicketsController < ApplicationController
   end
 
   get '/server/:id' do
+    @formattedDate = Party.convert_time(Date.today.to_s)
     @server = Server.find(params[:id])
-    @parties = Party.all.where("server_id='#{@server.id}' and reservation_date='#{Date.today()}' and status = 'upcoming'")
+    @parties = Party.all.where("server_id='#{@server.id}' and reservation_date='#{Date.today()}'")
     erb :'tickets/server_show'
   end
 
@@ -26,7 +27,7 @@ class TicketsController < ApplicationController
     @foods_Drinks = Food.all.where("course='Drinks'")
     @foods_Appetizers = Food.all.where("course = 'Appetizers'")
     @foods_Entrees = Food.all.where("course = 'Entrees'")
-    @foods_Desserts = Food.all.where("course = 'Dessers'")
+    @foods_Desserts = Food.all.where("course = 'Desserts'")
     @foods_Sides = Food.all.where("course = 'Sides'")
     @courses = ["Drinks", "Sides", "Appetizers", "Entrees", "Desserts"];
     @allergens = ["none", "lactose", "nuts", "wheat", "eggs", "soy", "fish"];

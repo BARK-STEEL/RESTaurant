@@ -5,8 +5,9 @@
 <div class="row">
 
   <form class="date" action="/parties/date" method="get">
-    <input class="datepicker" type="text" name="reservation_date"><br/>
-    <button type="submit">Select Date</button>
+    <input  class="datepicker" type="text" name="reservation_date"><br/>
+    <button id="date_submit" type="button" >Select Date</button>
+    <input id="submit_handle" type="submit" style="display: none">
   </form>
   <form class="date" action="/parties/date" method="get">
     <input type="hidden" name="reservation_date" value="<%=Date.today.to_s.gsub('-','')%>"><br/>

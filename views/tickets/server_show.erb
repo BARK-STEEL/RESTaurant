@@ -1,6 +1,6 @@
 
 <div class="row">
-    <h3 class="page-header">Select Table</h3>
+    <h3 class="page-header" style="font-size:1.5em;">Select Table for <%= @formattedDate %></span></h3>
 
 </div>
 
@@ -10,7 +10,7 @@
 
       <% @parties.each do |party| %>
         <form class="" action="/tickets/party" method="post">
-          <button type="submit" name="party_id" value="<%= party.id  %>"><%= party.table_number %></button>
+          <button type="submit" name="party_id" value="<%= party.id  %>"><%= party.table_number %> - <span class="<%=party.status%>"><%=party.status%></span></button>
         </form>
       <% end %>
 

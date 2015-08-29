@@ -6,13 +6,13 @@ class PartiesController < ApplicationController
   end
 
   get '/date' do
-    if params[:reservation_date].length > 0
+    # if params[:reservation_date].length > 0
       @formattedDate = Party.convert_time(params[:reservation_date])
       @date = params[:reservation_date]
       @parties = Party.all.where("reservation_date = '#{params[:reservation_date]}'")
-    else
-      @parties = []
-    end
+    # else
+    #   @parties = []
+    # end
     erb :'parties/date'
   end
 

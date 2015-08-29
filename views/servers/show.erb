@@ -1,21 +1,17 @@
 <div class="row">
-  <h3 class="page-header">Server Info</h3>
+  <h3 class="page-header"><%=@server.name%></h3>
 
-  <form class="admin" action="/servers">
-    <button type="submit">Back to Servers</button>
-  </form><br/>
 </div>
 
 <div class="row">
-  Name:<h4><%= @server.name %></h4>
-  Phone Number<h4><%= @server.phone_number.insert(0, "(").insert(4, ")").insert(8, "-")%></h4>
+  Phone Number:<h4><%= @server.phone_number.insert(0, "(").insert(4, ")").insert(8, "-")%></h4>
   Reservations:
   <div class="row">
     <%if @parties.length==0%>
     None
     <%end%>
     <div class="desktop">
-      <table>
+      <table id="server-table">
         <tr>
           <th></th>
           <th>Date</th>
@@ -43,7 +39,7 @@
         <% end %>
       </table>
     </div>
-    <div class="mobile">
+    <div class="mobile server-res">
       <ul>
         <% @parties.each do |party| %>
           <li class="shadow">
@@ -61,12 +57,10 @@
     </div>
   </div>
   <div class="row">
-  <form class="admin-forms" action="/servers/<%= @server.id %>/edit">
-    <button type="submit">Edit Server Info</button>
+  <form class="admin" action="/servers">
+    <button type="submit">Servers</button>
   </form>
-
-  <form class="" action="/servers/<%= @server.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete Server</button>
+  <form class="admin" action="/servers/<%= @server.id %>/edit">
+    <button type="submit">Edit</button>
   </form>
 </div>

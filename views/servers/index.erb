@@ -4,19 +4,27 @@
 
 </div>
 
-<div class="row servers">
-  <ul>
-    <% @servers.each do |server| %>
-      <li>
-        <a href="/servers/<%= server.id %>">
-          <button>
-            <%= server.name %>
-          </button>
-        </a>
-      </li>
-    <% end %>
+<div class="servers">
+  <div class="row">
+    <ul>
+      <% @servers.each_with_index do |server, index| %>
+        <div class="six columns">
+          <li>
+            <a href="/servers/<%= server.id %>">
+              <button>
+                <%= server.name %>
+              </button>
+            </a>
+          </li>
+        </div>
 
-  </ul>
+        <%if (index+1)%2==0%>
+          </div>
+          <div class="row">
+        <%end%>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="main-button">

@@ -1,5 +1,6 @@
 console.log("...Loaded");
 $(window).ready(function(){
+
   $(function() {
       var date = $("#datepicker").datepicker({
 
@@ -28,9 +29,76 @@ $(window).ready(function(){
   hiddenName:true
   // hiddenPrefix: 'prefix__',
   // hiddenSuffix: '__suffix'
-  });
+});
 
-  $('.course-button').on('click', function(){
+//Form Validations
+
+//Date
+$('#date_submit').on('click', function(){
+  if ($(".datepicker").val() === "" || $(".datepicker").val() === "Please enter a date" ){
+    $(".datepicker").val("Please enter a date").css({color:"red"});
+  } else {
+    $("#submit_handle").click();
+  }
+});
+$('#date_submit2').on('click', function(){
+  if ($(".datepicker").val() === "" || $(".datepicker").val() === "Please enter a date"){
+    $(".datepicker").val("Please enter a date").css({color:"red"});
+    $(".datepicker").css({color:"red"});
+  } else {
+    $("#submit_handle2").click();
+  }
+});
+$('.datepicker').on('click', function(event){
+  event.target.style.color="black";
+});
+
+// Servers
+$('#server_submit').on('click', function(){
+  if ($("#server-name").val() === "" || $("#server-phone").val()==="" || $("#server-name").val() === "Please enter a name" || $("#server-phone").val()==="Please enter a phone number" ){
+    if ($("#server-name").val()===""){
+      $("#server-name").val("Please enter a name").css({color:"red"});
+    } else if ($("#server-phone").val()===""){
+      $("#server-phone").val("Please enter a phone number").css({color:"red"});
+    } else {
+      $("#server-name").val("Please enter a name").css({color:"red"});
+      $("#server-phone").val("Please enter a phone number").css({color:"red"});
+    }
+  } else {
+    $("#server_submit_handle").click();
+  }
+});
+$("#server-name").on('click', function(){
+  $("#server-name").val("").css({color:"black"});
+});
+$("#server-phone").on('click', function(){
+  $("#server-phone").val("").css({color:"black"});
+});
+
+//Food
+
+$('#food_submit').on('click', function(){
+  if ($("#food-name").val() === "" || $("#food-price").val()==="" || $("#food-name").val() === "Please enter a name" || $("#food-price").val()==="Please enter a price" ){
+    if  ($("#food-name").val() === "" && $("#food-price").val()==="") {
+      $("#food-name").val("Please enter a name").css({color:"red"});
+      $("#food-price").val("Please enter a price").css({color:"red"});
+    } else if ($("#food-name").val()===""){
+      $("#food-name").val("Please enter a name").css({color:"red"});
+    } else if ($("#food-price").val()===""){
+      $("#food-price").val("Please enter a price").css({color:"red"});
+    }
+  } else {
+    $("#food_submit_handler").click();
+  }
+});
+$("#food-name").on('click', function(){
+  $("#food-name").val("").css({color:"black"});
+});
+$("#food-price").on('click', function(){
+  $("#food-price").val("").css({color:"black"});
+});
+
+$('.course-button').on('click', function(){
     var courseselect = $('.course-selection').val();
     $('.food-selection').html(
       "<% @foods_" + courseselect + ".each do|food| %><option value='<%= food %>'><%= course %></option><% end %>"

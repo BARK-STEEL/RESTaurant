@@ -150,7 +150,7 @@
       <label>Which Kind of Side?</label>
         <select name="item_order[food_id]" required>
         <option value="">-Choose A Side-</option>
-        <% @foods_Appetizers.each do |food|%>
+        <% @foods_Sides.each do |food|%>
         <option class="" value="<%= food.id %>">
           <%= food.name %>
         </option>
@@ -196,8 +196,8 @@
   <form class="admin" action="/">
     <button type="submit">Main</button>
   </form>
-  <form class="admin" action="/parties">
-    <button type="submit">All Reservations</button>
+  <form class="admin" action="/tickets/server/<%=@party.server.id%>">
+    <button type="submit"><%= "#{@party.server.name.split(" ")[0]}'s"%> Tables</button>
   </form>
 </div>
 <% end %>
