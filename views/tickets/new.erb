@@ -1,12 +1,17 @@
 <div class="row">
-  <h3 class="page-header">New order</h3>
+  <% if @party.status == "open"%>
+  <h3 class="page-header">New Order</h3>
+  <% elsif @party.status == "closed"%>
+  <h3 class="page-header">Closed Order</h3>
+  <% end %>
+
   <h4>Server: <%= @party.server.name %></h4>
   <h4>Table: <%= @party.table_number %></h4>
   <h4>Party of <%= @party.number_seats%></h4>
   <h4>Status: <%= @party.status%></h4>
 
 
-<% if @party.status == "open" || @party.status == "closed"%>
+<% if @party.status == "open"%>
 </div>
 
 <div class="row">
@@ -37,21 +42,29 @@
   <div class="mobile">
     <ul>
     <% @orders.each do |order| %>
-    <li>
-        Order Item: <%= order.food.name %><br/>
-        Price: $<%= sprintf "%.2f", order.food.price %><br/>
-        Status: <span class="food-order" data-start-time="<%= order.created_at %>" data-food-status="<%= order.status %>"><%= order.status %></span><br/>
-        <form class="delete" action="/tickets/<%= order.id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <button type="submit">X</button>
-        </form>
-      </li>
+    <li class="order-modal-open" data-order-id="<%=order.id%>">
+    - <%= order.food.name %> -
+  </li>
+      <div class="order-modal" id="<%=order.id%>">
+        <div class="order-modal-content">
+          <div class="close-order-modal" data-order-id="<%=order.id%>">X</div>
+          <div class="order-modal-body">
+            Order Item: <%= order.food.name %><br/>
+            Price: $<%= sprintf "%.2f", order.food.price %><br/>
+            Status: <span class="food-order" data-start-time="<%= order.created_at %>" data-food-status="<%= order.status %>"><%= order.status %></span><br/>
+            <form class="delete" action="/tickets/<%= order.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit">X</button>
+            </form>
+          </div>
+        </div>
+      </div>
     <% end %>
     </ul>
   </div>
 </div>
 
-<div class="row">
+<div class="row total-price">
     Total Price: $<%= "#{@total.to_s}0" %><br/>
 </div>
 
@@ -79,9 +92,9 @@
     </div>
 
   <div id="Drinks"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
-    <form action="/tickets/party/<%= @party.id %>" method="post">
+    <form name="myForm"  action="/tickets/party/<%= @party.id %>" method="post" onsubmit="return validateForm()">
       <label>Which Kind of Drink?</label>
-        <select name="item_order[food_id]">
+        <select name="item_order[food_id]" required>
           <option value="">-Choose A Drink-</option>
           <% @foods_Drinks.each do |food|%>
           <option class="" value="<%= food.id %>">
@@ -97,9 +110,9 @@
   </div>
 
   <div id="Appetizers"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
-    <form action="/tickets/party/<%= @party.id %>" method="post">
+    <form name="myForm" action="/tickets/party/<%= @party.id %>" method="post" onsubmit="return validateForm()">
       <label>Which Kind of Appetizer?</label>
-        <select name="item_order[food_id]">
+        <select name="item_order[food_id]" required>
         <option value="">-Choose An Appetizer-</option>
         <% @foods_Appetizers.each do |food|%>
         <option class="" value="<%= food.id %>">
@@ -115,9 +128,9 @@
   </div>
 
   <div id="Entrees"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
-    <form action="/tickets/party/<%= @party.id %>" method="post">
+    <form name="myForm" action="/tickets/party/<%= @party.id %>" method="post" onsubmit="return validateForm()">
       <label>Which Kind of Entree?</label>
-        <select name="item_order[food_id]">
+        <select name="item_order[food_id]" required>
           <option value="">-Choose An Entree-</option>
           <% @foods_Entrees.each do |food|%>
           <option class="" value="<%= food.id %>">
@@ -133,9 +146,9 @@
   </div>
 
   <div id="Sides"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
-    <form action="/tickets/party/<%= @party.id %>" method="post">
+    <form name="myForm" action="/tickets/party/<%= @party.id %>" method="post" onsubmit="return validateForm()">
       <label>Which Kind of Side?</label>
-        <select name="item_order[food_id]">
+        <select name="item_order[food_id]" required>
         <option value="">-Choose A Side-</option>
         <% @foods_Appetizers.each do |food|%>
         <option class="" value="<%= food.id %>">
@@ -151,9 +164,9 @@
   </div>
 
   <div id="Desserts"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
-    <form action="/tickets/party/<%= @party.id %>" method="post">
+    <form name="myForm" action="/tickets/party/<%= @party.id %>" method="post" onsubmit="return validateForm()">
       <label>Which Kind of Dessert?</label>
-        <select name="item_order[food_id]">
+        <select name="item_order[food_id]" required>
         <option value="">-Choose A Dessert-</option>
         <% @foods_Desserts.each do |food|%>
         <option class="" value="<%= food.id %>">
@@ -172,46 +185,12 @@
 
 <div class="row">
 
-
-
-
     <button class="checkout-button" type="submit">Checkout</button>
 
 </div>
-<div class="modal">
-
-  <div class="modal-content">
-    <form action="/tickets/checkout/<%= @party.id %>" method="post">
-      <button type="submit" id="close-modal">X</button>
-    </form>
-    <div class="modal-body">
-      <h1>Receipt</h1>
-      Table Number: <%= @party.table_number%><br/>
-      Server: <%= @party.server.name%>
-      <div class="">
-        <ul>
-
-          <% @orders.each do |order| %>
-            <li>
-
-              <%= order.food.name %>
-              $<%= sprintf "%.2f", order.food.price %>
-
-            </li>
-          <% end %>
 
 
-        </ul>
-        Subtotal: $<%= "#{@total.to_s}0" %><br/>
 
-        Suggested Tip:<br/>
-        15%: $<%= sprintf "%.2f", @total*0.15 %><br/>
-        20%: $<%=  sprintf "%.2f", @total*0.20 %><br/>
-        25%: $<%=  sprintf "%.2f", @total*0.25 %><br/>
-      </div>
-    </div>
-  </div>
-</div>
 
 
   <form class="admin" action="/">
@@ -221,4 +200,44 @@
     <button type="submit">All Reservations</button>
   </form>
 </div>
+<% end %>
+<% if @party.status == "open" || @party.status == "closed"%>
+<div class="modal">
+
+  <div class="modal-content">
+    <% if @party.status == "open"%>
+    <form action="/tickets/checkout/<%= @party.id %>" method="post">
+      <button type="submit" id="close-modal">X</button>
+    </form>
+    <% elsif @party.status == "closed"%>
+    <button id="close-modal-out">X</button>
+    <% end %>
+    <div class="modal-body">
+      <h3>Receipt</h3>
+      Date: <%= @party.reservation_date %>
+      Table Number: <%= @party.table_number%><br/>
+      Server: <%= @party.server.name%>
+      <div class="">
+          <% @receipt.each do |food| %>
+            - <span id="receipt"><%= "#{food[0]} x#{food[1]} $#{sprintf "%.2f", food[1]*food[2]}"%></span> - <br/>
+          <% end %>
+        Subtotal: $<span id="subtotal"><%= sprintf "%.2f", @total %></span><br/>
+        Total: $<span id="total"></span><br/>
+
+        Suggested Tip:<br/>
+        <div class="tips">
+          15%: $<span class="tip admin"><%= sprintf "%.2f", @total*0.15 %></span>
+          20%: $<span class="tip admin"><%=  sprintf "%.2f", @total*0.20 %></span>
+          25%: $<span class="tip admin"><%=  sprintf "%.2f", @total*0.25 %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+<% if @party.status == "closed"%>
+  <button class="see-receipt" type="submit">See Receipt</button><br/>
+<%end%>
+<% if @party.status == "closed" || @party.status == "upcoming"%>
+  <a href="/"><button type="submit">Main</button></a>
 <% end %>

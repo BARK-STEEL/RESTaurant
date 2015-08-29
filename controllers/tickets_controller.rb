@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
 
   get '/server/:id' do
     @server = Server.find(params[:id])
+    @parties = Party.all.where("server_id='#{@server.id}' and reservation_date='#{Date.today()}' and status = 'upcoming'")
     erb :'tickets/server_show'
   end
 
@@ -31,6 +32,7 @@ class TicketsController < ApplicationController
     @allergens = ["none", "lactose", "nuts", "wheat", "eggs", "soy", "fish"];
     @party = Party.find(params[:id])
     @orders = @party.item_orders
+    @receipt = Party.receipt(@orders)
     @total = Party.calculate_receipt(@orders)
     erb :'tickets/new'
   end
@@ -44,12 +46,14 @@ class TicketsController < ApplicationController
   post '/checkout/:id' do
     party = Party.find(params[:id])
     Party.where(id: "#{party.id}").update_all(status: "closed")
-    redirect "/tickets/checkout/#{party.id}"
+    redirect "/tickets/party/#{party.id}"
   end
 
   get "/checkout/:id" do
+
     @party = Party.find(params[:id])
     @orders = @party.item_orders
+    @receipt = Party.receipt(@orders)
     @total = Party.calculate_receipt(@orders)
     erb :'tickets/receipt'
   end

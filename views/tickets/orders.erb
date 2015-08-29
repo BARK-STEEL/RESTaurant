@@ -3,16 +3,16 @@
 
 
 
-    <% @orders.each do |order| %>
+    <div class="overflow"><% @orders.each do |order| %>
 
-      <div class="row" >
-        <form class="" action="/tickets/kitchen/<%= order.id %>" method="post">
-          <button class="kitchen" type="submit" data-start-time="<%= order.created_at %>"><%= order.food.name %></button>
-        </form>
-      </div>
+        <div class="row" >
+          <form class="" action="/tickets/kitchen/<%= order.id %>" method="post">
+            <button class="kitchen" type="submit" data-start-time="<%= order.created_at %>"><%= order.food.name %></button>
+          </form>
+        </div>
 
 
-    <% end %>
+      <% end %></div>
 
     <form class="admin main-button" action="/admin">
       <button type="submit">Admin</button>

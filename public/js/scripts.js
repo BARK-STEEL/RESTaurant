@@ -73,10 +73,41 @@ $(".checkout-button").on("click", function() {
   console.log("You clicked the open button!");
   $(".modal").toggle();
 });
+$(".see-receipt").on("click", function() {
+  console.log("You clicked the open button!");
+  $(".modal").toggle();
+});
+$(".order-modal-open").on("click", function(event) {
+  var chosen = event.target.getAttribute("data-order-id");
+  order = document.getElementById(chosen);
+  // console.log(order);
+  $( order ).toggle();
+});
+// $(".order-modal-open").click(function() {
+//   var chosen = event.target.getAttribute("data-order-id");
+//   order = document.getElementById(chosen);
+//   $( order ).slideDown(500);
+//
+// });
 
 // Add an event to CLOSE the modal
-// $("#close-modal").on("click", function() {
-//   console.log("You clicked the close button.");
-//   $(".modal").toggle();
-// });
+$(".close-order-modal").on("click", function() {
+  var order_id = event.target.getAttribute("data-order-id");
+  var close = document.getElementById(order_id);
+  $( close ).toggle();
+});
+$("#close-modal-out").on("click", function() {
+  console.log("You clicked the close button.");
+  $(".modal").toggle();
+});
+
+$(".tip").click(function() {
+  var tip = event.target.textContent;
+  var subtotal = $("#subtotal").text();
+  console.log(subtotal);
+  var total = $("#total");
+$(total).text((parseFloat(subtotal) + parseFloat(tip)).toFixed(2));
+});
+
+
 });

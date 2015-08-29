@@ -8,7 +8,7 @@
 
 <div class="row admin-forms">
   <form class="" action="/foods" method="post">
-    <input type="text" name="food[name]" placeholder="name">
+    <input type="text" name="food[name]" placeholder="name" required>
     <select name="food[course]">
       <option>Course</option>
       <% @courses.each do |course|%>
@@ -27,7 +27,7 @@
       <% end %>
     </select>
 
-    <input type="text" name="food[price]" placeholder="price"><br/>
+    <input type="text" name="food[price]" placeholder="price" required><br/>
 
     <button type="submit">Submit</button>
 
