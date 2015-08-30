@@ -33,6 +33,19 @@ class PartiesController < ApplicationController
     redirect '/parties'
   end
 
+  get '/:id/edit' do
+    @servers = Server.all
+    @party = Party.find(params[:id])
+    erb :'parties/edit'
+  end
+
+
+  put '/:id' do
+    party = Party.find(params[:id])
+    party.update(params[:party])
+    redirect '/parties'
+  end
+
   delete '/:id' do
     Party.delete(params[:id])
     redirect '/parties'

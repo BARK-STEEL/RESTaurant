@@ -97,7 +97,30 @@ $("#food-name").on('click', function(){
 $("#food-price").on('click', function(){
   $("#food-price").val("").css({color:"black"});
 });
+//Reservations
 
+$('#res_submit').on('click', function(){
+  if ($("#res-time").val() === "" || $("#res-guests").val()==="" || $("#res-time").val() === "Please enter a time" || $("#res-guests").val()==="Please enter number of guests" ){
+    if  ($("#res-time").val() === "" && $("#res-guests").val()==="") {
+      $("#res-time").val("Please enter a time").css({color:"red"});
+      $("#res-guests").val("Please enter number of guests").css({color:"red"});
+    } else if ($("#res-time").val()===""){
+      $("#res-time").val("Please enter a time").css({color:"red"});
+    } else if ($("#res-guests").val()===""){
+      $("#res-guests").val("Please enter number of guests").css({color:"red"});
+    }
+  } else {
+    $("#res_submit_handler").click();
+  }
+});
+$("#res-time").on('click', function(){
+  $("#res-time").val("").css({color:"black"});
+});
+$("#res-guests").on('click', function(){
+  $("#res-guests").val("").css({color:"black"});
+});
+
+//
 $('.course-button').on('click', function(){
     var courseselect = $('.course-selection').val();
     $('.food-selection').html(

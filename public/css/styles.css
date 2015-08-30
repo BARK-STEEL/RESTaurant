@@ -69,6 +69,9 @@ li {
 .delete {
   margin-bottom:0;
 }
+.edit {
+  margin-bottom:0;
+}
 table {
   margin-left: 2%;
 }
@@ -153,7 +156,7 @@ button {
 ul {
   margin-bottom: 1%;
 }
-.menu button, .mobile button {
+.menu button {
   height:20px;
   width:20px;
   border-radius:50%;
@@ -305,6 +308,22 @@ select
     padding: 8px 0;
     margin-bottom:10px;
   }
+  .edit {
+    width:40px;
+    height:40px;
+    border-radius: 10px;
+    background-color: lightblue;
+    padding:0;
+  }
+  #delete {
+    height:20px;
+    width:20px;
+    border-radius:50%;
+    padding:0;
+    line-height:1;
+    text-align: center;
+    background-color: rgb(241, 102, 102);
+  }
   .desktop {
     display:none;
   }
@@ -379,7 +398,7 @@ select
    .server-res-li{
      margin:0;
    }
-   .datepicker {
+   .datepicker-date {
      float:left;
      width:50%;
      padding:0;
@@ -545,6 +564,50 @@ select
     border-radius: 50%;
   }
   .main>form {
-    margin-top:30%;
+    margin-top:10%;
+  }
+  .datepicker-date {
+    float:left;
+    width:20%;
+    padding:0;
+    margin-left: 30%;
+  }
+ .datepicker-all {
+   float:left;
+   width:20%;
+   padding:0;
+   margin-left:30%;
+ }
+  .select-date-button{
+    float:left;
+    border-radius:50%;
+    padding:0px 10px;
+    line-height:1;
+    position:relative;
+    margin-top:-2.5%;
+    margin-left: 2%;
+    background-color: limegreen;
+  }
+  .select-date-button-all {
+    float:left;
+    border-radius:50%;
+    padding:0px 10px;
+    line-height:1;
+    position:relative;
+    margin-top:-2.5%;
+    margin-left: 2%;
+    background-color: limegreen;
+    margin-left: 5%;
+  }
+  .all-button {
+    width: 10%;
+    padding-right: 50px;
+  }
+  .all-b {
+    width:20px;
+    float:left;
+    position:relative;
+    margin-top:-5.2%;
+    margin-left: 8%;
   }
 }

@@ -3,7 +3,7 @@
 
   <form class="" action="/parties/date" method="get">
     <input type="hidden" name="reservation_date" value="<%= @date %>"><br/>
-    <button type="submit">Back to Reservations</button>
+    <button type="submit">Reservations</button>
   </form>
 
 </div>
@@ -13,7 +13,7 @@
 <div class="row party-forms">
   <form class="" action="/parties" method="post">
   <input type="hidden" name="party[reservation_date]" value="<%= @date %>">
-  Time: <input class="timepicker" type="text" name="party[reservation_time]"><br/>
+  Time: <input id="res-time" class="timepicker" type="text" name="party[reservation_time]" placeholder="Time"><br/>
 
   Server: <select name="party[server_id]">
     <% @servers.each do |server|%>
@@ -23,13 +23,14 @@
     <% end %>
   </select><br/>
 
-    Guests:<input type="text" name="party[number_seats]" placeholder="">
+    Guests:<input id="res-guests" type="text" name="party[number_seats]" placeholder="Number of guests"><br/>
 
     <input type="hidden" name="party[table_number]" value="<%= @table_number%>">
 
     <input type="hidden" name="party[status]" value="upcoming">
 
-    <button type="submit">Submit</button>
+    <button id="res_submit" type="button">Submit</button>
+    <input id="res_submit_handler" type="submit" style="display:none">
 
   </form>
 </div>

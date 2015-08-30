@@ -1,0 +1,41 @@
+<div class="row">
+  <h3 class="page-header">Edit Reservation</h3>
+
+  <form class="" action="/parties" method="get">
+    <input type="hidden" name="reservation_date" value="<%= @date %>"><br/>
+    <button type="submit">Reservations</button>
+  </form>
+
+</div>
+<div class="row" style="text-align:center">
+  <form class="" action="/parties/<%=@party.id%>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input class="datepicker" type="text" name="party[reservation_date]" value="<%=@party.reservation_date%>"><br/>
+
+<div style="margin-right:30px;">
+  Time: <input id="res-time" class="timepicker" type="text" name="party[reservation_time]" value="<%=@party.reservation_time%>"><br/>
+
+  Server: <select name="party[server_id]">
+    <option value="<%= @party.server.id%>"><%= @party.server.name%></option>
+    <% @servers.each do |server|%>
+    <%if server.name!=@party.server.name%>
+    <option value="<%= server.id %>">
+      <%= server.name %>
+    </option>
+    <%end%>
+    <% end %>
+  </select><br/>
+
+    Guests:<input id="res-guests" type="text" name="party[number_seats]" value="<%=@party.number_seats%>"><br/>
+
+    Table:<input type="text" name="party[table_number]" value="<%= @party.table_number%>"><br/>
+</div>
+
+    <input type="hidden" name="party[status]" value="upcoming">
+</div>
+<div class="row">
+    <button id="res_submit" type="button">Submit</button>
+    <input id="res_submit_handler" type="submit" style="display:none">
+
+  </form>
+</div>
