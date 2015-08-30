@@ -22,7 +22,7 @@
     <% @parties.each do |party| %>
       <% if party.table_number === num %>
           <div class="two columns">
-            <form class= "res-table" action="/tickets/party/<%= party.id%>" method="post">
+            <form class= "res-table" action="/tickets/party/<%= party.id%>" method="get">
               <button class="full" type="submit" name="party_id" value="<%= party.id %>"><%= num %></button>
             </form>
           </div>

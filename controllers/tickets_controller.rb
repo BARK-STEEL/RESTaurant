@@ -32,6 +32,7 @@ class TicketsController < ApplicationController
     @courses = ["Drinks", "Sides", "Appetizers", "Entrees", "Desserts"];
     @allergens = ["none", "lactose", "nuts", "wheat", "eggs", "soy", "fish"];
     @party = Party.find(params[:id])
+    @formattedDate = Party.convert_time(@party.reservation_date.to_s)
     @orders = @party.item_orders
     @receipt = Party.receipt(@orders)
     @total = Party.calculate_receipt(@orders)

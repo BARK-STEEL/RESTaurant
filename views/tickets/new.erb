@@ -1,10 +1,16 @@
 <div class="row">
   <% if @party.status == "open"%>
-  <h3 class="page-header">New Order</h3>
+  <h5 class="page-header">New Order for<br/> <%= @formattedDate%></h5>
   <% elsif @party.status == "closed"%>
   <h3 class="page-header">Closed Order</h3>
+  <%else%>
+  <h5 class='page-header'>Upcoming Reservation on<br/> <%=@formattedDate%></h5>
   <% end %>
 
+  <% if @party.status=='closed'%>
+  <h4>Date: <span style="font-size:.8em"><%= @formattedDate%></span></h4>
+  <%end%>
+  <h4>Time: <span style="font-size:.8em"><%= @party.reservation_time%></span>
   <h4>Server: <%= @party.server.name %></h4>
   <h4>Table: <%= @party.table_number %></h4>
   <h4>Party of <%= @party.number_seats%></h4>
