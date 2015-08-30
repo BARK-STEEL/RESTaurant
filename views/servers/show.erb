@@ -51,9 +51,14 @@
               Table Number: <span style="text-align: center;"><%= party.table_number %></span><br/>
               Party of <span style="text-align: center;"><%= party.number_seats %></span><br/>
               Status: <span class="<%= party.status %>"><%= party.status %></span><br/></a>
-            <form class="delete" action="/parties/<%=party.id%>" method="post">
+              <%if party.status=="upcoming"%>
+              <form class="admin" action="/parties/<%=party.id%>/edit">
+                    <button class="edit" type="submit" name="button">Edit</button>
+              </form>
+              <%end%>
+            <form  class="admin" action="/parties/<%=party.id%>" method="post">
                   <input type="hidden" name="_method" value="delete">
-                  <button type="submit" name="button">X</button>
+                  <button id="delete" type="submit" name="button">X</button>
             </form>
           </li>
         <% end %>

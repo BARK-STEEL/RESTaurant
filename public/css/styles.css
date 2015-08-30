@@ -390,7 +390,7 @@ select
    .server-res {
      padding-top:2%;
      height: 145px;
-     width:70%;
+     /*width:70%;*/
      margin: 0 auto 10px auto;
      overflow:scroll;
      border-bottom: 1px solid black;
