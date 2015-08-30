@@ -87,17 +87,13 @@ http://http://45.55.240.99/
 
 ##Wireframe
 
-<div style="text-align:center;">
-![Image of ERD](images/TableTurn_Wireframe.png)
-</div>
+![Image of Wireframe](images/TableTurn_Wireframe.png)
 
 ---
 
 ##ERD
 
-<div style="text-align:center;">
-![Image of ERD](images/TableTurn_ERD.jpg)
-</div>
+![Image of ERD](images/TableTurn_ERD2.jpg)
 
 ---
 
