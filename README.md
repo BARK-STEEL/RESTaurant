@@ -43,12 +43,11 @@
 
 ---
 
-<img src="images/TableTurn_
-Menu.PNG" width="250px">
+<img src="images/TableTurn_Menu.PNG" width="250px">
 
 ---
 
-- Reservations are booked by date and time, with unbooked tables marked with green and booked tables marked with red
+- Reservations are booked by date and time, with unbooked tables marked with green, and booked tables marked with red
 
 ---
 
@@ -85,7 +84,7 @@ http://http://45.55.240.99/
 
 ##Code Snippets
 
-* This method accepts an array of orders as an argument, and returns an array of arrays containing each food ordered, the quantity ordered, and the item price, to be used for generating a party receipt.  
+* This ruby method accepts an array of orders as an argument, and returns an array of arrays containing each food ordered, the quantity ordered, and the item price, to be used for generating a party receipt.  
 
 ```
 def self.receipt(orders)
@@ -111,7 +110,7 @@ def self.receipt(orders)
 end
 ```
 
-* This fragment determines the length of time since an order was placed, and changes the color of the order if certain time thresholds have been passed.
+* This jQuery/JavaScript fragment determines the length of time since an order was placed, and changes the color of the order if certain time thresholds have been passed.
 
 ```
 var d = $('.kitchen');

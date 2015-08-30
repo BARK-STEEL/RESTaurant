@@ -216,7 +216,8 @@
     <% end %>
     <div class="modal-body">
       <h3>Receipt</h3>
-      Date: <%= @party.reservation_date %>
+      Date: <%= @party.reservation_date %><br/>
+      Time: <%= @party.reservation_time%><br/>
       Table Number: <%= @party.table_number%><br/>
       Server: <%= @party.server.name%>
       <div class="">
