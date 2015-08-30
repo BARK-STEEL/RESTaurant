@@ -23,7 +23,7 @@ background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.p
   text-align: center;
 }
 .server-show {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .tips {
   font-size:.8em;
@@ -44,10 +44,11 @@ background-image: url(http://www.transparenttextures.com/patterns/fabric-plaid.p
   text-align: center;
 }
 .empty {
-  background-color: rgb(250, 65, 65);
+  background-color:
+  rgb(11, 185, 81);
 }
 .full {
-  background-color: rgb(11, 185, 81);
+  background-color: rgb(250, 65, 65);
 }
 .foodItem {
   float:left;
@@ -270,14 +271,14 @@ select
   width:90%;
   margin: 0 auto;
   padding-top:5px;
-  height: 200px;
+  height: 400px;
   overflow:scroll;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
 }
 .servers {
   padding-top:2%;
-  height: 160px;
+  height: 225px;
   width:70%;
   margin: 0 auto;
   overflow:scroll;
@@ -388,7 +389,7 @@ select
    }
    .server-res {
      padding-top:2%;
-     height: 130px;
+     height: 145px;
      width:70%;
      margin: 0 auto 10px auto;
      overflow:scroll;
@@ -446,6 +447,15 @@ select
      height:170px;
      padding:10px 0;
      margin-bottom:6px;
+     border-bottom: 1px solid black;
+     border-top: 1px solid black;
+   }
+   .overflow {
+     width:90%;
+     margin: 0 auto;
+     padding-top:5px;
+     height: 220px;
+     overflow:scroll;
      border-bottom: 1px solid black;
      border-top: 1px solid black;
    }

@@ -7,10 +7,10 @@
   Phone Number:<h4><%= @server.phone_number.insert(0, "(").insert(4, ")").insert(8, "-")%></h4>
   Reservations:
   <div class="row">
-    <%if @parties.length==0%>
-    None
-    <%end%>
     <div class="desktop">
+      <%if @parties.length==0%>
+      None
+      <%end%>
       <table id="server-table">
         <tr>
           <th></th>
@@ -40,6 +40,9 @@
       </table>
     </div>
     <div class="mobile server-res">
+      <%if @parties.length==0%>
+      None
+      <%end%>
       <ul>
         <% @parties.each do |party| %>
           <li class="shadow server-res-li">

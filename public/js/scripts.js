@@ -56,13 +56,13 @@ $('.datepicker').on('click', function(event){
 // Servers
 $('#server_submit').on('click', function(){
   if ($("#server-name").val() === "" || $("#server-phone").val()==="" || $("#server-name").val() === "Please enter a name" || $("#server-phone").val()==="Please enter a phone number" ){
-    if ($("#server-name").val()===""){
+    if ($("#server-name").val()==="" && $("#server-phone").val()===""){
       $("#server-name").val("Please enter a name").css({color:"red"});
+      $("#server-phone").val("Please enter a phone number").css({color:"red"});
     } else if ($("#server-phone").val()===""){
       $("#server-phone").val("Please enter a phone number").css({color:"red"});
-    } else {
+    } else if ($("#server-name").val()===""){
       $("#server-name").val("Please enter a name").css({color:"red"});
-      $("#server-phone").val("Please enter a phone number").css({color:"red"});
     }
   } else {
     $("#server_submit_handle").click();

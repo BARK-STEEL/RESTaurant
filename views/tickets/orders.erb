@@ -1,20 +1,23 @@
 <div class="row">
   <h3 class="page-header">Kitchen</h3>
 
+  <div class="overflow">
+    <div class="row" >
+      <% @orders.each_with_index do |order, index| %>
+          <div class="six columns">
+            <form class="" action="/tickets/kitchen/<%= order.id %>" method="post">
+              <button class="kitchen" type="submit" data-start-time="<%= order.created_at %>"><%= order.food.name %> - Table <%=order.party.table_number%></button>
+            </form>
+          </div>
+          <% if ( index+1 ) % 2 == 0 %>
+            </div>
+            <div class="row">
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 
-
-    <div class="overflow"><% @orders.each do |order| %>
-
-        <div class="row" >
-          <form class="" action="/tickets/kitchen/<%= order.id %>" method="post">
-            <button class="kitchen" type="submit" data-start-time="<%= order.created_at %>"><%= order.food.name %></button>
-          </form>
-        </div>
-
-
-      <% end %></div>
-
-    <form class="main-button" action="/admin">
+    <form class="server-show" action="/admin">
       <button type="submit">Admin</button>
     </form>
 

@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
   get '/server/:id' do
     @formattedDate = Party.convert_time(Date.today.to_s)
     @server = Server.find(params[:id])
-    @parties = Party.all.where("server_id='#{@server.id}' and reservation_date='#{Date.today()}'")
+    @parties = Party.all.where("server_id='#{@server.id}' and reservation_date='#{Date.today()}' and status!='closed'")
     erb :'tickets/server_show'
   end
 
