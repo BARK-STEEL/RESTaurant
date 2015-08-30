@@ -4,7 +4,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Main.PNG)
+<img src="images/TableTurn_Main.PNG" width="250px">
 
 ---
 
@@ -12,14 +12,14 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Tables.PNG)
+<img src="images/TableTurn_Tables.PNG" width="250px">
 
 ---
 - On the order page, food items are added to the tab by dropdown menu, and additional information about an item can be retrieved by clicking on it.
 
 ---
 
-![Image of TableTurn](images/TableTurn_Order.PNG)
+<img src="images/TableTurn_Order.PNG" width="250px">
 
 ---
 
@@ -27,7 +27,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Receipt.PNG)
+<img src="images/TableTurn_Receipt.PNG" width="250px">
 
 ---
 
@@ -35,7 +35,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Admin.PNG)
+<img src="images/TableTurn_Admin.PNG" width="250px">
 
 ---
 
@@ -43,7 +43,8 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Menu.PNG)
+<img src="images/TableTurn_
+Menu.PNG" width="250px">
 
 ---
 
@@ -51,7 +52,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Reservations.PNG)
+<img src="images/TableTurn_Reservations.PNG" width="250px">
 
 ---
 
@@ -78,7 +79,7 @@ http://http://45.55.240.99/
 
 ##ERD
 
-![Image of ERD](images/TableTurn_ERD.JPG)
+![Image of ERD](images/TableTurn_ERD.jpg)
 
 ---
 
