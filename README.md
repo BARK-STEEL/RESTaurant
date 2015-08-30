@@ -4,7 +4,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Main.png)
+![Image of TableTurn](images/TableTurn_Main.PNG)
 
 ---
 
@@ -12,14 +12,14 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Tables.png)
+![Image of TableTurn](images/TableTurn_Tables.PNG)
 
 ---
 - On the order page, food items are added to the tab by dropdown menu, and additional information about an item can be retrieved by clicking on it.
 
 ---
 
-![Image of TableTurn](images/TableTurn_Order.png)
+![Image of TableTurn](images/TableTurn_Order.PNG)
 
 ---
 
@@ -27,7 +27,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Receipt.png)
+![Image of TableTurn](images/TableTurn_Receipt.PNG)
 
 ---
 
@@ -35,7 +35,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Admin.png)
+![Image of TableTurn](images/TableTurn_Admin.PNG)
 
 ---
 
@@ -43,7 +43,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Menu.png)
+![Image of TableTurn](images/TableTurn_Menu.PNG)
 
 ---
 
@@ -51,7 +51,7 @@
 
 ---
 
-![Image of TableTurn](images/TableTurn_Reservations.png)
+![Image of TableTurn](images/TableTurn_Reservations.PNG)
 
 ---
 
@@ -110,7 +110,7 @@ def self.receipt(orders)
 end
 ```
 
-* This fragment determines the length of time since an order was placed, and changes the color of the order if certain time thresholds have been passed. 
+* This fragment determines the length of time since an order was placed, and changes the color of the order if certain time thresholds have been passed.
 
 ```
 var d = $('.kitchen');
