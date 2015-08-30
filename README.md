@@ -27,7 +27,7 @@
 
 ---
 
-<img src="images/TableTurn_Receipt.PNG" width="250px">
+<img src="images/TableTurn_receipt2.gif" width="250px">
 
 ---
 
