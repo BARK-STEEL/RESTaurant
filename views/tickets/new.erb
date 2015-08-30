@@ -193,12 +193,14 @@
 
 
 
+<div class="row">
   <form class="admin" action="/">
     <button type="submit">Main</button>
   </form>
   <form class="admin" action="/tickets/server/<%=@party.server.id%>">
     <button type="submit"><%= "#{@party.server.name.split(" ")[0]}'s"%> Tables</button>
   </form>
+</div>
 </div>
 <% end %>
 <% if @party.status == "open" || @party.status == "closed"%>

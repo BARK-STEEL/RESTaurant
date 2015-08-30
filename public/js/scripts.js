@@ -24,7 +24,7 @@ $(window).ready(function(){
 
   $('.datepicker').pickadate({
   // Escape any “rule” characters with an exclamation mark (!).
-  format: 'dddd, mmm dd, yyyy',
+  format: 'ddd, mmm dd, yyyy',
   formatSubmit: 'yyyymmdd',
   hiddenName:true
   // hiddenPrefix: 'prefix__',

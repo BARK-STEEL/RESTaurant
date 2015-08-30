@@ -4,13 +4,13 @@
 
 <div class="row">
 
-  <form class="" action="/parties/date" method="get">
-    <input class="datepicker" type="text" name="reservation_date"><br/>
-    <button id="date_submit2" class="" type="button">Select Date</button>
+  <form class="date-form" action="/parties/date" method="get">
+    <input class="datepicker" type="text" name="reservation_date" placeholder="Select a Date"><br/>
+    <button class="select-date-button" id="date_submit2" class="" type="button">&#10004</button>
     <input id="submit_handle2" type="submit" style="display: none">
   </form>
-  <form class="admin" action="/parties">
-    <button type="submit">All Reservations</button>
+  <form class="admin all-b" action="/parties">
+    <button class="all-button" type="submit">All</button>
   </form>
 </div>
 

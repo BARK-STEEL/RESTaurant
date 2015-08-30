@@ -5,13 +5,9 @@
 <div class="row">
 
   <form class="date" action="/parties/date" method="get">
-    <input  class="datepicker" type="text" name="reservation_date"><br/>
-    <button id="date_submit" type="button" >Select Date</button>
+    <input  class="datepicker datepicker-all" type="text" name="reservation_date" placeholder="Select a Date"><br/>
+    <button id="date_submit" class= "select-date-button-all" type="button" >&#10004</button>
     <input id="submit_handle" type="submit" style="display: none">
-  </form>
-  <form class="date" action="/parties/date" method="get">
-    <input type="hidden" name="reservation_date" value="<%=Date.today.to_s.gsub('-','')%>"><br/>
-    <button type="submit">Today</button>
   </form>
 
 </div>
@@ -48,7 +44,7 @@
       <% end %>
     </table>
   </div>
-  <div class="mobile">
+  <div class="mobile all-res-overflow">
     <ul>
       <% @parties.each do |party| %>
         <li class="shadow">
@@ -64,6 +60,7 @@
           </form>
         </li>
       <% end %>
+    </ul>
   </div>
   <form class="admin" action="/admin">
     <button type="submit">Admin</button>

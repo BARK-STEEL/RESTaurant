@@ -42,7 +42,7 @@
     <div class="mobile server-res">
       <ul>
         <% @parties.each do |party| %>
-          <li class="shadow">
+          <li class="shadow server-res-li">
             <a href="/tickets/party/<%= party.id %>">Date: <%= party.reservation_date %><br/>
               Time: <%= party.reservation_time %><br/>
               Table Number: <span style="text-align: center;"><%= party.table_number %></span><br/>

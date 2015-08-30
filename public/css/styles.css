@@ -75,8 +75,8 @@ table {
 .orders {
   margin-left:28%;
 }
-.server-table {
-  margin-left:15%;
+#server-table {
+  margin-left:10%;
 }
 .tables {
   margin-left:25%;
@@ -139,7 +139,7 @@ button {
   background-color: rgba(110, 170, 189, 0.5);
   color: darkslategrey;
   border: 2px solid rgb(105, 102, 102);
-  border-radius: 12px;
+  /*border-radius: 12px;*/
 }
 .full, .empty {
   font-size: 1.5em;
@@ -149,7 +149,6 @@ button {
   border-radius:50%;
   padding:5%;
   border: 2px solid white;
-  border-radius:5px;
 }
 ul {
   margin-bottom: 1%;
@@ -223,17 +222,6 @@ select
   background: url("http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-14.jpg");
   padding: 10px;
 }
-.ordal-modal-body {
-  position: absolute;
-  width: 100%;
-  top:25%;
-  background-color: white;
-  border: 1px solid white;
-  z-index: 1;
-  text-align: center;
-  background: url("http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-14.jpg");
-  padding: 10px;
-}
 #close-modal, #close-modal-out{
   position: absolute;
   left: 96%;
@@ -265,6 +253,13 @@ select
   line-height: .2;
   color: white;
 }
+/*.date-form {
+  height:0;
+}
+.select-date-button {
+  padding:0;
+}*/
+
 #close-modal:hover, #close-modal-out:hover, .close-order-modal:hover {
   cursor: pointer;
 }
@@ -286,15 +281,6 @@ select
   border-bottom: 1px solid black;
   border-top: 1px solid black;
 }
-.server-res {
-  padding-top:2%;
-  height: 140px;
-  width:70%;
-  margin: 0 auto 10px auto;
-  overflow:scroll;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-}
 .total-price {
   border-top: 1px solid black;
   padding-top:5px;
@@ -312,6 +298,12 @@ select
   }
   .tables{
     margin-left: 15%;
+    overflow:scroll;
+    height:150px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding: 8px 0;
+    margin-bottom:10px;
   }
   .desktop {
     display:none;
@@ -322,7 +314,7 @@ select
   .mobile li {
     /*border: 1px solid black;*/
     padding: 5px 0 0 0;
-    width: 60%;
+    width: 85%;
     margin: 0 auto 10px auto;
     border-radius:5px;
   }
@@ -336,7 +328,7 @@ select
   .main>form {
     margin-top:10%;
   }
-  .party-info
+  .party-info {
     width: 150px;
   }
   h2 {
@@ -352,10 +344,14 @@ select
   }
   .modal-content {
     position: relative;
-    margin: 0 25%;
+    margin: 0 15%;
     background-color: white;
     top:10%;
-    width:50%;
+    width:70%;
+  }
+  .modal-body {
+    height: 300px;
+    overflow: scroll;
   }
   .order-modal-content {
    position: relative;
@@ -371,13 +367,76 @@ select
    text-align: center;
    margin-top:15px;
    }
+   .server-res {
+     padding-top:2%;
+     height: 130px;
+     width:70%;
+     margin: 0 auto 10px auto;
+     overflow:scroll;
+     border-bottom: 1px solid black;
+     border-top: 1px solid black;
+   }
+   .server-res-li{
+     margin:0;
+   }
+   .datepicker {
+     float:left;
+     width:50%;
+     padding:0;
+   }
+  .datepicker-all {
+    float:left;
+    width:50%;
+    padding:0;
+    margin-left:15%;
+  }
+   .select-date-button{
+     float:left;
+     border-radius:50%;
+     padding:0px 10px;
+     line-height:1;
+     position:relative;
+     margin-top:-9%;
+     margin-left: 2%;
+     background-color: limegreen;
+   }
+   .select-date-button-all {
+     float:left;
+     border-radius:50%;
+     padding:0px 10px;
+     line-height:1;
+     position:relative;
+     margin-top:-9%;
+     margin-left: 2%;
+     background-color: limegreen;
+     margin-left: 5%;
+   }
+   .all-button {
+     width: 10%;
+     padding-right: 50px;
+   }
+   .all-b {
+     width:20px;
+     float:left;
+     position:relative;
+     margin-top:-9%;
+     margin-left: 2%;
+   }
+   .all-res-overflow {
+     overflow:scroll;
+     height:170px;
+     padding:10px 0;
+     margin-bottom:6px;
+     border-bottom: 1px solid black;
+     border-top: 1px solid black;
+   }
 }
 @media (min-width : 371px) and (max-width : 500px){
   form.res-table {
     width: 100px;
     margin:0;
   }
-  .two.columns {
+  .two {
     width:120px;
   }
   .tables {
@@ -398,6 +457,7 @@ select
   }
   h2 {
     font-size: 2em;
+  }
   /*}
   .party-forms>form {
     width: 200px;
@@ -439,7 +499,7 @@ select
     margin:0;
   }
   .two.columns {
-    width:140px;
+    width:130px;
   }
   .desktop {
     display:none;
@@ -472,14 +532,17 @@ select
 }
 @media (min-width : 901px) and (max-width : 1500px){
   .desktop {
-    display:none;
+    display:block;
   }
   .mobile {
-    display:block;
+    display:none;
   }
   .header {
     margin-top: 2%;
     margin-bottom: 5%;
+  }
+  .full, .empty {
+    border-radius: 50%;
   }
   .main>form {
     margin-top:30%;
