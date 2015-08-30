@@ -54,7 +54,7 @@
             Status: <span class="food-order" data-start-time="<%= order.created_at %>" data-food-status="<%= order.status %>"><%= order.status %></span><br/>
             <form class="delete" action="/tickets/<%= order.id %>" method="post">
               <input type="hidden" name="_method" value="delete">
-              <button type="submit">X</button>
+              <button id="delete" type="submit">X</button>
             </form>
           </div>
         </div>
