@@ -50,6 +50,8 @@ class FoodsController < ApplicationController
   end
 
   delete '/:id' do
+    food = Food.find(params[:id])
+    ItemOrder.delete_all("food_id=#{food.id}")
     Food.delete(params[:id])
     redirect '/foods'
   end

@@ -47,6 +47,8 @@ class PartiesController < ApplicationController
   end
 
   delete '/:id' do
+    party = Party.find(params[:id])
+    ItemOrder.delete_all("party_id = #{party.id}")
     Party.delete(params[:id])
     redirect '/parties'
   end

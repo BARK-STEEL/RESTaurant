@@ -32,6 +32,9 @@ class ServersController < ApplicationController
   end
 
   delete '/:id' do
+    server=Server.find(params[:id])
+    Party.delete_all("server_id=#{server.id}")
+    ItemOrder.delete_all("server_id=#{server.id}")
     Server.delete(params[:id])
     redirect '/servers'
   end
